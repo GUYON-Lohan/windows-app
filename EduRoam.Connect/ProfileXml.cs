@@ -279,16 +279,17 @@ namespace EduRoam.Connect
                                     new XElement(nsETCPv1 + "SimpleCertSelection", "true")
                                 )
                             ),
-                            serverValidationElement =
-                            new XElement(nsETCPv1 + "ServerValidation",
-                                new XElement(nsETCPv1 + "DisableUserPromptForServerValidation", enableServerValidation ? "true" : "false"),
+                            serverValidationElement = serverNames.Any()
+                            ? new XElement(nsETCPv1 + "ServerValidation",
+                                new XElement(nsETCPv1 + "DisableUserPromptForServerValidation", "true"),
                                 new XElement(nsETCPv1 + "ServerNames", string.Join(";", serverNames))
-                            ),
+                            ) : null,
                             new XElement(nsETCPv1 + "DifferentUsername", "false"),
-                            new XElement(nsETCPv2 + "PerformServerValidation", "true"),
-                            new XElement(nsETCPv2 + "AcceptServerName", "false"),
+                            new XElement(nsETCPv2 + "PerformServerValidation", enableServerValidation ? "true" : "false"),
+                            new XElement(nsETCPv2 + "AcceptServerName", enableServerValidation ? "true" : "false"),
                             new XElement(nsETCPv2 + "TLSExtensions",
                                 new XElement(nsETCPv3 + "FilteringInfo",
+                                    // We'll add IssuerHash to the CAHashList later
                                     caHashListElement =
                                     new XElement(nsETCPv3 + "CAHashList", new XAttribute("Enabled", "true"))
                                 )
@@ -339,11 +340,11 @@ namespace EduRoam.Connect
                     new XElement(nsBECP + "Eap", // PEAP
                         new XElement(nsBECP + "Type", (int)eapType),
                         new XElement(nsMPCPv1 + "EapType",
-                            serverValidationElement =
-                            new XElement(nsMPCPv1 + "ServerValidation",
-                                new XElement(nsMPCPv1 + "DisableUserPromptForServerValidation", enableServerValidation ? "true" : "false"),
+                            serverValidationElement = serverNames.Any()
+                            ? new XElement(nsMPCPv1 + "ServerValidation",
+                                new XElement(nsMPCPv1 + "DisableUserPromptForServerValidation", "true"),
                                 new XElement(nsMPCPv1 + "ServerNames", string.Join(";", serverNames))
-                            ),
+                            ) : null,
                             new XElement(nsMPCPv1 + "FastReconnect", "true"),
                             new XElement(nsMPCPv1 + "InnerEapOptional", "false"),
                             new XElement(nsBECP + "Eap", // MSCHAPv2
@@ -355,8 +356,8 @@ namespace EduRoam.Connect
                             new XElement(nsMPCPv1 + "EnableQuarantineChecks", "false"),
                             new XElement(nsMPCPv1 + "RequireCryptoBinding", "false"),
                             new XElement(nsMPCPv1 + "PeapExtensions",
-                                new XElement(nsMPCPv2 + "PerformServerValidation", "true"),
-                                new XElement(nsMPCPv2 + "AcceptServerName", "true"),
+                                new XElement(nsMPCPv2 + "PerformServerValidation", enableServerValidation ? "true" : "false"),
+                                new XElement(nsMPCPv2 + "AcceptServerName", enableServerValidation ? "true" : "false"),
                                 string.IsNullOrWhiteSpace(anonymousUserName)
                                     ? new XElement(nsMPCPv2 + "IdentityPrivacy",
                                         new XElement(nsMPCPv2 + "EnableIdentityPrivacy", "false")
@@ -379,7 +380,7 @@ namespace EduRoam.Connect
                                 // Intel(R) Dual Band Wireless-AC 7265
                                 // Driver Version 19.51.24.3 (8/26/2019)
                                 new XElement(nsMPCPv2 + "PeapExtensionsV2",
-                                    new XElement(nsMPCPv3 + "AllowPromptingWhenServerCANotFound", "true")
+                                    new XElement(nsMPCPv3 + "AllowPromptingWhenServerCANotFound", enableServerValidation ? "false" : "true")
                                 )
                             )
                         )
@@ -457,12 +458,7 @@ namespace EduRoam.Connect
             if (caThumbprints.Any())
             {
                 // Format the CA thumbprints into xs:element type="hexBinary"
-                var formattedThumbprints = caThumbprints
-                    .Select(thumb => Regex.Replace(thumb, " ", ""))
-                    .Select(thumb => Regex.Replace(thumb, ".{2}", "$0 "))
-                    .Select(thumb => thumb.ToUpperInvariant())
-                    .Select(thumb => thumb.Trim())
-                    .ToList();
+                var formattedThumbprints = caThumbprints.Select(thumb => thumb.ToHexBinary()).ToList();
 
                 // Write the CA thumbprints to their proper places in the XML:
 
