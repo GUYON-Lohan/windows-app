@@ -125,7 +125,7 @@ namespace EduRoam.Connect.Identity
                 
                 if (!this.Providers.Any())
                 {
-                    var isNewVersion = ProviderApiUrl.ToString().Contains("/v2/");
+                    var isNewVersion = !ProviderApiUrl.ToString().Contains("/v1/");
                     
                     // downloads json file as string
                     var apiJson = await DownloadUrlAsString(ProviderApiUrl, new string[] { "application/json" }).ConfigureAwait(false);

@@ -16,15 +16,15 @@ namespace EduRoam.Connect.Converter
             {
                 Version = "2",
                 Seq = input.Root.Seq,
-                Instances = input.Root.Institutions.Select(institution => new IdentityProvider
+                Instances = input.Root.Providers.Select(provider => new IdentityProvider
                 {
-                    Country = institution.Country,
-                    Id = institution.Id,
-                    Name = institution.Name["any"],
-                    SearchTags = PopulateSearchTags(institution),
-                    Profiles = institution.Profiles.Select(profile => new IdentityProviderProfile
+                    Country = provider.Country,
+                    Id = provider.Id,
+                    Name = provider.Name.First().Value,
+                    SearchTags = PopulateSearchTags(provider),
+                    Profiles = provider.Profiles.Select(profile => new IdentityProviderProfile
                     {
-                        Name = profile.Name.ContainsKey("any") ? profile.Name["any"] : institution.Name["any"],
+                        Name = profile.Name?.Count != 0 ? profile.Name.First().Value : provider.Name.First().Value,
                         Id = profile.Id,
                         OAuth = profile.Type == "letswifi",
                         EapConfigEndpoint = profile.Type == "eap-config" ? profile.EapConfigEndpoint : null,
@@ -37,15 +37,15 @@ namespace EduRoam.Connect.Converter
             return output;
         }
 
-        private static List<string> PopulateSearchTags(LetsWifiDiscovery.DiscoveryInstitution institution)
+        private static List<string> PopulateSearchTags(LetsWifiDiscovery.DiscoveryInstitution provider)
         {
             List<string> searchTags = [];
 
-            searchTags.AddRange(institution.Name.Where(x => !string.IsNullOrEmpty(x.Value)).Select(x => x.Value).ToList());
+            searchTags.AddRange(provider.Name.Where(x => !string.IsNullOrEmpty(x.Value)).Select(x => x.Value).ToList());
 
-            if(institution.Profiles.Any(p => p.LetsWifiEndpoint != null))
+            if(provider.Profiles.Any(p => p.LetsWifiEndpoint != null))
             {
-                var profiles = institution.Profiles.Where(p => p.LetsWifiEndpoint != null);
+                var profiles = provider.Profiles.Where(p => p.LetsWifiEndpoint != null);
                 searchTags.AddRange(profiles.Select(p => p.LetsWifiEndpoint).ToList());
             }
 
