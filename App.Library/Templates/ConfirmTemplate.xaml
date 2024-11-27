@@ -31,7 +31,7 @@
                             Margin="7, 14"
                             Command="{Binding ConfirmCommand}">
                     <Button.Style>
-                        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource WhiteButtonStyle}">
+                        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource BlueButtonStyle}">
                             <Setter Property="Content" Value="{Binding ConfirmButtonText}" />
                         </Style>
                     </Button.Style>
@@ -46,7 +46,7 @@
                         Command="{Binding DenyCommand}"
                         Visibility="{Binding ShowDenyButton, Converter={StaticResource BooleanToVisibilityConverter}}">
                     <Button.Style>
-                        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource RedButtonStyle}">
+                        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource WhiteButtonStyle}">
                             <Setter Property="Content" Value="{x:Static lang:Resources.NoText}" />
                         </Style>
                     </Button.Style>
