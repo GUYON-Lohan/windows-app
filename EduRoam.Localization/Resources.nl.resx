@@ -624,5 +624,11 @@ Uitzondering: {0}</value>
   </data>
   <data name="CheckCertificateToastP2" xml:space="preserve">
     <value>U heeft {0} dagen, verleng alstublieft uw account.</value>
+  </data>  
+  <data name="AlreadyEapConfigActive" xml:space="preserve">
+    <value>Er is al een actief profiel. Wilt u dit overschrijven met de momenteel geselecteerde EAP-configuratie?</value>
+  </data>
+  <data name="InstallCurrentlySelectedEapConfig" xml:space="preserve">
+    <value>Wilt u de huidige geselecteerde EAP-configuratie configureren?</value>
   </data>
 </root>

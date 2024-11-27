@@ -203,7 +203,7 @@ namespace App.Library.ViewModels
 
             if (!string.IsNullOrEmpty(Settings.Settings.EapConfigFileLocation))
             {
-                var message = status.ActiveProfile ? "Er is al een profiel actief. Wilt u deze overschrijven met het huidige geselecteerde eap-config?" : "Wilt u de huidige geselecteerde eap-config configureren?";
+                var message = status.ActiveProfile ? EduRoam.Localization.Resources.AlreadyEapConfigActive : EduRoam.Localization.Resources.InstallCurrentlySelectedEapConfig;
                 
                 this.SetActiveContent(new ConfirmViewModel(this, message, false, OnConfirm, OnDeny));
 

@@ -637,4 +637,10 @@ Exception: {0}</value>
   <data name="CheckCertificateToastP2" xml:space="preserve">
     <value>You have {0} days left, please renew your account.</value>
   </data>
+  <data name="AlreadyEapConfigActive" xml:space="preserve">
+    <value>There is already an active profile. Do you want to overwrite it with the currently selected EAP configuration?</value>
+  </data>
+  <data name="InstallCurrentlySelectedEapConfig" xml:space="preserve">
+    <value>Would you like to configure the currently selected EAP configuration?</value>
+  </data>
 </root>

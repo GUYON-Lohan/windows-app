@@ -61,6 +61,15 @@ namespace EduRoam.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to There is already an active profile. Do you want to overwrite it with the currently selected EAP configuration?.
+        /// </summary>
+        public static string AlreadyEapConfigActive {
+            get {
+                return ResourceManager.GetString("AlreadyEapConfigActive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Supported CLI commands:
         ///
         ///    /? : 
@@ -792,6 +801,15 @@ namespace EduRoam.Localization {
         public static string HoursLeft {
             get {
                 return ResourceManager.GetString("HoursLeft", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Would you like to configure the currently selected EAP configuration?.
+        /// </summary>
+        public static string InstallCurrentlySelectedEapConfig {
+            get {
+                return ResourceManager.GetString("InstallCurrentlySelectedEapConfig", resourceCulture);
             }
         }
         
