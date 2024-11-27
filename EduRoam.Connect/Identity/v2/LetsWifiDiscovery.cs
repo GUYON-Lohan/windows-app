@@ -25,8 +25,7 @@ namespace EduRoam.Connect.Identity.v2
 
         public class DiscoveryName
         {
-            [JsonProperty("")]
-            public string Value { get; set; } = null!;
+            public string Display { get; set; } = null!;
             public string Lang { get; set; } = null!;
         }
 
