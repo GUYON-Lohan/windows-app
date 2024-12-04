@@ -646,4 +646,16 @@ Exception: {0}</value>
   <data name="UpdateCurrentFileNewer" xml:space="preserve">
     <value>The installed version of {0} is older then this version. Do you want to update?</value>
   </data>
+  <data name="UpdateAvailableMessage" xml:space="preserve">
+    <value>A new version of {0} is available. You currently have version {1}, and it can be updated to version {2}. 
+
+Would you like to download and install this new version?</value>
+  </data>
+  <data name="VersionNoLongerSupported" xml:space="preserve">
+    <value>This version of {0} is no longer supported. You are using version {1} while the minimal supported version is {2}.
+
+Newest version is {3}, do you want to download and install?
+
+If you click "No" {0} will exit.</value>
+  </data>
 </root>

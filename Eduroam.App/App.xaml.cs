@@ -29,17 +29,7 @@ namespace Eduroam.App
                 this.Shutdown(1);
             }
 
-            #region UpdateChecker
-            if(UpdateChecker.CheckIfUpdateAvailable())
-            {
-                var result = MessageBox.Show(LanguageResources.UpdateCurrentFileNewer, LanguageResources.UpdateAvailable, MessageBoxButton.YesNo);
-                if (result == MessageBoxResult.Yes)
-                {
-                    
-                    this.Shutdown(1);
-                }
-            }
-            #endregion
+            UpdateChecker.CheckIfUpdateAvailable();
 
             #region SelfInstaller AutoInstall
             var resultObject = AutoInstaller.CheckIfInstalled();

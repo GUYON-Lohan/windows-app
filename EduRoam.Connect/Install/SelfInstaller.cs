@@ -453,7 +453,6 @@ namespace EduRoam.Connect.Install
             Process.Start(this.InstallExePath);
         }
 
-
         private SemVersion GetFileVersion(string path)
         {
             var fileVersion = FileVersionInfo.GetVersionInfo(path);
@@ -461,9 +460,11 @@ namespace EduRoam.Connect.Install
             var splittedVersion = v.Split(".".ToCharArray());
 
 
-            var t = new SemVersion(int.Parse(splittedVersion[0]), int.Parse(splittedVersion[1]), int.Parse(splittedVersion[2]));
-            return t;
+            return new SemVersion(int.Parse(splittedVersion[0]), int.Parse(splittedVersion[1]), int.Parse(splittedVersion[2]));
         }
+
+        public SemVersion GetCurrentVersion() => this.GetFileVersion(ThisExePath);
+        public string GetCurrentVersionString() => this.GetCurrentVersion().ToString();
         #endregion
     }
 
