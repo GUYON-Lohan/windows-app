@@ -1,4 +1,6 @@
-﻿namespace App.Settings
+﻿using System.Data;
+
+namespace App.Settings
 {
     public static class Settings
     {

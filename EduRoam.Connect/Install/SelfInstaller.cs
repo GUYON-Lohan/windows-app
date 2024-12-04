@@ -397,7 +397,7 @@ namespace EduRoam.Connect.Install
             return arg.Replace("%", "^%").Replace(" ", "^ ");
         }
 
-        #region AutoInstaller helper functions
+        #region AutoInstaller and UpdateChecker helper functions
         /// <summary>
         /// </summary>
         public bool CanBeUpdated()
@@ -405,12 +405,13 @@ namespace EduRoam.Connect.Install
             var installedVersion = this.GetFileVersion(this.InstallExePath);
             var runningVersion = this.GetFileVersion(System.Reflection.Assembly.GetEntryAssembly()!.Location);
 
-            if(SemVersion.ComparePrecedence(installedVersion, runningVersion) == -1)
-            {
-                return true;
-            }
+            return (SemVersion.ComparePrecedence(installedVersion, runningVersion) == -1);
+        }
 
-            return false;
+        public bool CanBeUpdated(SemVersion newVersion)
+        {
+            var installedVersion = this.GetFileVersion(this.InstallExePath);
+            return (SemVersion.ComparePrecedence(installedVersion, newVersion) == -1);
         }
 
         /// <summary>

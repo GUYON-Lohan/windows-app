@@ -61,10 +61,13 @@
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\UpdateResponseDto.cs" />
     <Compile Include="ServicesConfiguration.cs" />
     <Compile Include="Templates\LocalDataTemplateSelector.cs" />
+    <Compile Include="Utility\ArchitectureHelper.cs" />
     <Compile Include="Utility\AutoInstaller.cs" />
     <Compile Include="Utility\FileDialog.cs" />
+    <Compile Include="Utility\UpdateChecker.cs" />
     <Compile Include="ViewModels\BaseConnectViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\CertificateInstallerViewModel.cs" />
