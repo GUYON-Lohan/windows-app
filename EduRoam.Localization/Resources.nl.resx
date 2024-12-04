@@ -595,8 +595,17 @@ Uitzondering: {0}</value>
   <data name="WarnRealmMismatch" xml:space="preserve">
     <value>/!\ Het domein voor de OuterIdentity wordt ingesteld op "{0}", maar het profiel specificeert "{1}"</value>
   </data>
+  <data name="YesText" xml:space="preserve">
+    <value>Ja</value>
+  </data>
   <data name="Yes" xml:space="preserve">
     <value>✓</value>
+  </data>
+  <data name="NoText" xml:space="preserve">
+    <value>Nee</value>
+  </data>
+  <data name="OkeText" xml:space="preserve">
+    <value>Oke</value>
   </data>
   <data name="NoConnection" xml:space="preserve">
     <value>eduroam vereist een actieve internetverbinding.</value>
