@@ -5,12 +5,12 @@ using System.Windows;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Govroam.App")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("getgovroam for Windows")]
+[assembly: AssemblyDescription("govroam configuration utility")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Surf")]
-[assembly: AssemblyProduct("Govroam.App")]
-[assembly: AssemblyCopyright("")]
+[assembly: AssemblyCompany("SURF")]
+[assembly: AssemblyProduct("getgovroam")]
+[assembly: AssemblyCopyright("Copyright © 2018-2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
