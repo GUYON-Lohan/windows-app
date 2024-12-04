@@ -18,7 +18,7 @@ namespace App.Library.Utility;
 
 public static class UpdateChecker
 {
-    private const string UpdateUrlBase = "{0}/windows/{1}/update.json"; // {0} has to be replaced with the arch
+    private const string UpdateUrlBase = "{0}/windows/{1}/update.json"; // {0} has to be replaced with the base url from the settings and {1} has to be replaced with the arch
     public static UpdateResponseRootDto UpdateData { get; set; } = new();       
     public static bool IsUpdateAvailable { get; set; }
     public static SemVersion? MinimalSupportedVersion { get; set; } 
