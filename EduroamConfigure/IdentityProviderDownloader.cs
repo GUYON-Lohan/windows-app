@@ -19,9 +19,9 @@ namespace EduroamConfigure
 		// constants
 		private static readonly Uri GeoApiUrl = new Uri("https://geo.eduroam.app/geoip");
 #if DEBUG
-		private static readonly Uri ProviderApiUrl = new Uri("https://discovery.eduroam.app/v1/discovery.json");
+		private static readonly Uri ProviderApiUrl = new Uri("https://discovery.eduroam.app/v3/discovery.json");
 #else
-		private static readonly Uri ProviderApiUrl = new Uri("https://discovery.eduroam.app/v1/discovery.json");
+		private static readonly Uri ProviderApiUrl = new Uri("https://discovery.eduroam.app/v3/discovery.json");
 #endif
 
 		// http objects
