@@ -356,6 +356,18 @@ namespace EduRoam.Connect.Install
                     exceptionOnNotExists: false);
             }
 
+            // remove file association
+            var fileRegEapConfig = Registry.CurrentUser.OpenSubKey("Software\\Classes\\.eap-config");
+            if (fileRegEapConfig != null) {
+                var subkey = fileRegEapConfig.OpenSubKey("shell\\open\\command");
+                // If .eap-config is still ours, remove the file association
+                if (string.Equals(subkey?.GetValue(null), $"{this.InstallExePath} \"%1\""))
+                {
+                    Registry.CurrentUser.DeleteSubKeyTree("Software\\Classes\\.eap-config", false);
+                }
+                fileRegEapConfig.Close();
+            }
+
             // remove registry entries
             Debug.WriteLine("Delete registry value: " + rnsRun + "\\" + this.applicationIdentifier);
             using (var key = Registry.CurrentUser
