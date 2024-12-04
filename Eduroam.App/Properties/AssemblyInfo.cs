@@ -8,7 +8,7 @@ using System.Windows;
 [assembly: AssemblyTitle("geteduroam for Windows")]
 [assembly: AssemblyDescription("eduroam configuration utility")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Surf")]
+[assembly: AssemblyCompany("SURF")]
 [assembly: AssemblyProduct("geteduroam")]
 [assembly: AssemblyCopyright("Copyright © 2018-2024")]
 [assembly: AssemblyTrademark("")]
