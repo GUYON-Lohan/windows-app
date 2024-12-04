@@ -220,7 +220,7 @@ namespace EduRoam.Connect.Install
 
             // Add file association
             var fileRegEapConfig = Registry.CurrentUser.CreateSubKey("Software\\Classes\\.eap-config");
-            fileRegEapConfig.CreateSubKey("shell\\open\\command").SetValue("", $"{this.InstallExePath} /install-eap-config \"%1\"");
+            fileRegEapConfig.CreateSubKey("shell\\open\\command").SetValue(null, $"{this.InstallExePath} \"%1\"");
             // TODO: Use a document icon instead of the same icon as the exe file
             fileRegEapConfig.CreateSubKey("DefaultIcon").SetValue(null, $"{this.InstallExePath}");
             fileRegEapConfig.Close();

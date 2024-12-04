@@ -5,7 +5,6 @@ using Microsoft.Toolkit.Uwp.Notifications;
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,81 +19,78 @@ namespace App.Library
         /// <returns>true if startup is to be aborted</returns>
         public static bool PreGuiCommandLineArgs(string[] args)
         {
-            // shorthand
-            bool contains(string check) =>
-                args.Any(param => string.Equals(param, check, StringComparison.InvariantCultureIgnoreCase));
-
-            if (contains("/?")
-                || contains("/help"))
-            {
-                ShowHelpText();
-
-                return true;
+            if (args.Length == 0) {
+                return false; // continue to app
             }
-            
-            if (contains("/install")) // todo: MessageBox.Show(yes/no)
+            if (args[0][0] != '/')
             {
-                InstallTask.Install();
-
-                return true;
+                Settings.Settings.EapConfigFileLocation = args[0];
+                return false; // continue to app
             }
 
-            if (contains("/install-eap-config"))
+            var force = false;
+            switch (args[0].ToLowerInvariant())
             {
-                if (!string.IsNullOrEmpty(args[1]))
-                {
-                    Settings.Settings.EapConfigFileLocation = args[1];
-                }
-                else
-                {
-                    MessageBox.Show("No argument given for eap-config file location", $"Exception {Settings.Settings.ApplicationIdentifier}");
-                    return true;
-                }
+                case "/?":
+                case "/help":
+                    {
+                        ShowHelpText();
 
-                // continue to app
-                return false;
+                        return true; // terminate after
+                    }
+
+                case "/install":
+                    {
+                        InstallTask.Install();
+
+                        return true; // terminate after
+                    }
+
+                case "/uninstall":
+                    {
+                        UninstallTask.Uninstall(_ => { Environment.Exit(0); });
+
+                        return true; // terminate after
+                    }
+
+                case "/force-refresh":
+                case "/refresh-force":
+                    force = true;
+                    goto case "/refresh";
+                case "/refresh":
+                    {
+                        force |= args.Length >= 2 && string.Equals(args[1], "/force", StringComparison.OrdinalIgnoreCase);
+                        Task.Run(async () => { await RefreshTask.RefreshAsync(force: force); });
+
+                        return true; // terminate after
+                    }
+
+                case "/check-certificate":
+                    {
+                        var st = new StatusTask();
+                        var gst = st.GetStatus();
+                        var diffDate = (gst.ExpirationDate - DateTime.Now).Value.Days;
+
+                        if (diffDate <= Settings.Settings.DaysLeftForNotification)
+                        {
+                            new ToastContentBuilder()
+                                .AddText(string.Format(Resources.CheckCertificateToastP1, Settings.Settings.ApplicationIdentifier))
+                                .AddText(string.Format(Resources.CheckCertificateToastP2, diffDate))
+                                .AddButton(new ToastButton()
+                                    .SetContent(Resources.CheckCertificateToastButton)
+                                    .SetBackgroundActivation()
+                                 )
+                                .Show();
+                        }
+
+                        return true; // terminate after
+                    }
+
+                case "/close":
+                case "/background":
+                    return true; // Deprecated flags, just terminate
             }
-
-            if (contains("/uninstall"))
-            {
-                UninstallTask.Uninstall(_ => { Environment.Exit(0); });
-
-                return true;
-            }
-
-            if (contains("/refresh")
-                || contains("/force-refresh")
-                || contains("/refresh-force"))
-            {
-                Task.Run(async () => { await RefreshTask.RefreshAsync(force: contains("/refresh-force")); });
-
-                return true;
-            }
-
-            if(contains("/check-certificate"))
-            {
-                var st = new StatusTask();
-                var gst = st.GetStatus();
-                var diffDate = (gst.ExpirationDate - DateTime.Now).Value.Days;
-
-                if (diffDate <= Settings.Settings.DaysLeftForNotification)
-                {
-                    new ToastContentBuilder()
-                        .AddText(string.Format(Resources.CheckCertificateToastP1, Settings.Settings.ApplicationIdentifier))
-                        .AddText(string.Format(Resources.CheckCertificateToastP2, diffDate))
-                        .AddButton(new ToastButton()
-                            .SetContent(Resources.CheckCertificateToastButton)
-                            .SetBackgroundActivation()
-                         )
-                        .Show();
-                }
-            
-                return true;
-            }
-
-            return contains("/close")
-                   // Just quit when being started with /background
-                   || contains("/background");
+            return false;
         }
 
         private static void ShowHelpText() =>
