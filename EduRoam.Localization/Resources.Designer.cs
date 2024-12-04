@@ -1364,6 +1364,24 @@ namespace EduRoam.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Update available.
+        /// </summary>
+        public static string UpdateAvailable {
+            get {
+                return ResourceManager.GetString("UpdateAvailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The installed version of {0} is older then this version. Do you want to update?.
+        /// </summary>
+        public static string UpdateCurrentFileNewer {
+            get {
+                return ResourceManager.GetString("UpdateCurrentFileNewer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Username.
         /// </summary>
         public static string Username {

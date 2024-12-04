@@ -334,7 +334,7 @@ namespace App.Library.ViewModels
 
             try
             {
-                profile = this.idpDownloader.GetProfileFromId(profileId);
+                profile = await this.idpDownloader.GetProfileFromId(profileId);
                 
                 if (profile == null)
                 {

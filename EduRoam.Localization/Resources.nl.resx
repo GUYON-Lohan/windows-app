@@ -634,4 +634,10 @@ Uitzondering: {0}</value>
   <data name="AppTitle" xml:space="preserve">
     <value>Eduroam</value>
   </data>
+  <data name="UpdateAvailable" xml:space="preserve">
+    <value>Update beschikbaar</value>
+  </data>
+  <data name="UpdateCurrentFileNewer" xml:space="preserve">
+    <value>De geinstallerde {0} is is ouder dan deze versie, wilt u deze applicatie updaten?</value>
+  </data>
 </root>

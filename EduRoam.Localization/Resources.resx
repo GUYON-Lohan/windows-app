@@ -640,4 +640,10 @@ Exception: {0}</value>
   <data name="AppTitle" xml:space="preserve">
     <value />
   </data>
+  <data name="UpdateAvailable" xml:space="preserve">
+    <value>Update available</value>
+  </data>
+  <data name="UpdateCurrentFileNewer" xml:space="preserve">
+    <value>The installed version of {0} is older then this version. Do you want to update?</value>
+  </data>
 </root>
