@@ -86,6 +86,15 @@ namespace EduRoam.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string AppTitle {
+            get {
+                return ResourceManager.GetString("AppTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Are you sure you want to continue?.
         /// </summary>
         public static string AreYouSure {
@@ -1333,6 +1342,24 @@ namespace EduRoam.Localization {
         public static string UninstallNotification {
             get {
                 return ResourceManager.GetString("UninstallNotification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update available.
+        /// </summary>
+        public static string UpdateAvailable {
+            get {
+                return ResourceManager.GetString("UpdateAvailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The installed version of {0} is older then this version. Do you want to update?.
+        /// </summary>
+        public static string UpdateCurrentFileNewer {
+            get {
+                return ResourceManager.GetString("UpdateCurrentFileNewer", resourceCulture);
             }
         }
         

@@ -17,6 +17,10 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Xml;
+using System.Management;
+
+using EduRoam.Connect.Converter;
+using EduRoam.Connect.Identity.v2;
 
 namespace EduRoam.Connect.Identity
 {
@@ -48,11 +52,26 @@ namespace EduRoam.Connect.Identity
 
         private static HttpClient InitializeHttpClient()
         {
+            var r = string.Empty;
+            using (var searcher = new ManagementObjectSearcher("SELECT * FROM Win32_OperatingSystem"))
+            {
+                var information = searcher.Get();
+                if (information != null)
+                {
+                    foreach (ManagementObject obj in information)
+                    {
+                        r = obj["Caption"].ToString() + "; " + obj["OSArchitecture"].ToString();
+                    }
+                }
+                r = r.Replace("NT 5.1.2600", "XP");
+                r = r.Replace("NT 5.2.3790", "Server 2003");
+            }
+
             var client = new HttpClient(Handler, false);
 #if DEBUG
-            client.DefaultRequestHeaders.Add("User-Agent", $"{Settings.ApplicationIdentifier}-win/" + LetsWifi.Instance.VersionNumber + "+DEBUG HttpClient (Windows NT 10.0; Win64; x64)");
+            client.DefaultRequestHeaders.Add("User-Agent", $"{Settings.ApplicationIdentifier}-win/{LetsWifi.Instance.VersionNumber} DEBUG HttpClient ({r})");
 #else
-            client.DefaultRequestHeaders.Add("User-Agent", $"{Settings.ApplicationIdentifier}-win/" + LetsWifi.Instance.VersionNumber + " HttpClient (Windows NT 10.0; Win64; x64)");
+            client.DefaultRequestHeaders.Add("User-Agent", $"{Settings.ApplicationIdentifier}-win/{LetsWifi.Instance.VersionNumber} HttpClient ({r})");
 #endif
             // This client will not be used for subsequent requests,
             // so don't keep the connection open any longer than necessary
@@ -98,14 +117,33 @@ namespace EduRoam.Connect.Identity
         {
             try
             {
+                if (Cache.IdentityProviders != null)
+                {
+                    this.Providers = Cache.IdentityProviders;
+                    return;
+                }
+                
                 if (!this.Providers.Any())
                 {
+                    var isNewVersion = !ProviderApiUrl.ToString().Contains("/v1/");
+                    
                     // downloads json file as string
                     var apiJson = await DownloadUrlAsString(ProviderApiUrl, new string[] { "application/json" }).ConfigureAwait(false);
 
-                    // gets api instance from json
-                    var discovery = JsonConvert.DeserializeObject<DiscoveryApi>(apiJson);
-                    this.Providers = discovery?.Instances ?? new List<IdentityProvider>();
+                    DiscoveryApi discoveryData;
+
+                    if (isNewVersion)
+                    {
+                        var discovery = JsonConvert.DeserializeObject<LetsWifiDiscovery>(apiJson);
+                        discoveryData = DiscoveryConverter.Covert(discovery ?? new LetsWifiDiscovery());
+                    }
+                    else
+                    {
+                        discoveryData = JsonConvert.DeserializeObject<DiscoveryApi>(apiJson) ?? new DiscoveryApi();
+                    }
+                    
+                    this.Providers = discoveryData?.Instances ?? new List<IdentityProvider>();
+                    Cache.IdentityProviders = (List<IdentityProvider>?)this.Providers;
                 }
             }
             catch (JsonSerializationException e)
@@ -157,7 +195,7 @@ namespace EduRoam.Connect.Identity
         public async Task<EapConfig> DownloadEapConfig(string profileId)
         {
             await this.LoadProviders();
-            var profile = this.GetProfileFromId(profileId);
+            var profile = await this.GetProfileFromId(profileId);
             if (string.IsNullOrEmpty(profile?.EapConfigEndpoint))
             {
                 throw new EduroamAppUserException("Requested profile not listed in discovery");
@@ -199,7 +237,7 @@ namespace EduRoam.Connect.Identity
         /// <returns>The IdentityProviderProfile with the given profileId</returns>
         /// 
         /// <exception cref="EduroamAppUserException">If LoadProviders() was not called or threw an exception</exception>
-        public IdentityProviderProfile? GetProfileFromId(string profileId)
+        public async Task<IdentityProviderProfile?> GetProfileFromId(string profileId)
         {
             if (!this.Loaded)
             {
@@ -212,6 +250,13 @@ namespace EduRoam.Connect.Identity
                 {
                     if (profile.Id == profileId)
                     {
+                        if (!string.IsNullOrEmpty(profile.LetsWifiEndpoint))
+                        {
+                            var letsWifiProfile = await DownloadLetsWifiProfile(profile);
+                            profile.EapConfigEndpoint = letsWifiProfile?.EapConfigEndpoint;
+                            profile.TokenEndpoint = letsWifiProfile?.TokenEndpoint;
+                            profile.AuthorizationEndpoint = letsWifiProfile?.AuthorizationEndpoint;
+                        }
                         return profile;
                     }
                 }
@@ -234,21 +279,26 @@ namespace EduRoam.Connect.Identity
             HttpResponseMessage response;
             try
             {
-                if (accessToken == null)
+                using (var request = new HttpRequestMessage
                 {
-                    response = await Http.GetAsync(url);
-                }
-                else
+                    Method = HttpMethod.Get,
+                    RequestUri = url
+                })
                 {
-                    using var request = new HttpRequestMessage
+                    if (accessToken != null)
                     {
-                        Method = HttpMethod.Post,
-                        Content = new StringContent(""),
-                        RequestUri = url
-                    };
-                    request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+                        request.Method = HttpMethod.Post;
+                        request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+                    }
+
+                    foreach (var acceptValue in accept ?? new string[] { })
+                    {
+                        request.Headers.Add("Accept", acceptValue);
+                    }
+
                     response = await Http.SendAsync(request).ConfigureAwait(true);
                 }
+
             }
             catch (TaskCanceledException e)
             {
@@ -313,6 +363,35 @@ namespace EduRoam.Connect.Identity
             }
         }
 
+        private async Task<LetsWifiProfile.ProfileRoot> DownloadLetsWifiProfile(IdentityProviderProfile profile)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(profile.LetsWifiEndpoint))
+                {
+                    var letsWifiProfileJson = await DownloadUrlAsString(
+                        url: new Uri(profile.LetsWifiEndpoint), 
+                        accept: ["application/json"], 
+                        accessToken: null
+                    );
+                    var letsWifiProfile = JsonConvert.DeserializeObject<LetsWifiProfile>(letsWifiProfileJson);
+
+                    return letsWifiProfile.Root;
+                } else
+                {
+                    throw new Exception("No LetsWifi endpoint found in profile");
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+
+                throw new EduroamAppUserException(e.Message, "Error occurred while retrieving LetsWifi profile");
+            }
+
+            return new();
+        }
+
         private static async Task<string> parseResponse(HttpResponseMessage response, string[]? accept)
         {
             if (response.StatusCode >= HttpStatusCode.BadRequest)
@@ -331,23 +410,6 @@ namespace EduRoam.Connect.Identity
 
             return await response.Content.ReadAsStringAsync().ConfigureAwait(false);
         }
-
-#pragma warning disable CA2227 // Collection properties should be read only
-        private class DiscoveryApi
-        {
-            public DiscoveryApi()
-            {
-                this.Version = "";
-                this.Seq = "";
-                this.Instances = new List<IdentityProvider>();
-            }
-
-            public string Version { get; set; }
-            public string Seq { get; set; }
-            public List<IdentityProvider> Instances { get; set; }
-        }
-#pragma warning restore CA2227 // Collection properties should be read only
-
 
         // Protected implementation of Dispose pattern.
         private bool disposed;
