@@ -30,7 +30,7 @@ public static class UpdateChecker
     // http objects
     public static bool CheckIfUpdateAvailable()
     {
-        if(!isUpdateAllowedByPolicy(Registry.CurrentUser) || !isUpdateAllowedByPolicy(Registry.LocalMachine))
+        if(!IsUpdateAllowedByPolicy(Registry.CurrentUser) || !IsUpdateAllowedByPolicy(Registry.LocalMachine))
         {
             return false;
         }
@@ -48,7 +48,7 @@ public static class UpdateChecker
         return IsUpdateAvailable;
     }
 
-    private static bool isUpdateAllowedByPolicy(RegistryKey registryBaseKey)
+    private static bool IsUpdateAllowedByPolicy(RegistryKey registryBaseKey)
     {
         var key = registryBaseKey.OpenSubKey(string.Format(RegistryBase, Settings.Settings.ApplicationIdentifier));
         if (key == null) return true;
