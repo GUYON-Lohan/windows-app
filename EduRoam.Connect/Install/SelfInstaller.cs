@@ -408,6 +408,7 @@ namespace EduRoam.Connect.Install
 
         #region AutoInstaller and UpdateChecker helper functions
         /// <summary>
+        /// For AutoInstaller, location is Install Path
         /// </summary>
         public bool CanBeUpdated()
         {
@@ -417,9 +418,14 @@ namespace EduRoam.Connect.Install
             return (SemVersion.ComparePrecedence(installedVersion, runningVersion) == -1);
         }
 
+        /// <summary>
+        /// For UpdateChecker, location is Current path
+        /// </summary>
+        /// <param name="newVersion"></param>
+        /// <returns></returns>
         public bool CanBeUpdated(SemVersion newVersion)
         {
-            var installedVersion = this.GetFileVersion(this.InstallExePath);
+            var installedVersion = this.GetCurrentVersion();
             return (SemVersion.ComparePrecedence(installedVersion, newVersion) == -1);
         }
 
