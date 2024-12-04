@@ -27,21 +27,10 @@ public static class UpdateChecker
     public static SemVersion? MinimalSupportedVersion { get; set; } 
     public static string NewVersion { get; set; }
 
-
-
     // http objects
     public static bool CheckIfUpdateAvailable()
     {
-        var skipUpdateCheck = true;
-        using (var key = Registry.CurrentUser.OpenSubKey(string.Format(RegistryBase, Settings.Settings.ApplicationIdentifier)))
-        {
-            if (key != null)
-            {
-                skipUpdateCheck = Convert.ToBoolean(key.GetValue("DisableAutoUpdate", false));
-            }
-        }
-
-        if (skipUpdateCheck)
+        if(!isUpdateAllowedByPolicy(Registry.CurrentUser) || !isUpdateAllowedByPolicy(Registry.LocalMachine))
         {
             return false;
         }
@@ -57,6 +46,13 @@ public static class UpdateChecker
         IsUpdateAvailable = SelfInstaller.DefaultInstance.CanBeUpdated(newVersion);
 
         return IsUpdateAvailable;
+    }
+
+    private static bool isUpdateAllowedByPolicy(RegistryKey registryBaseKey)
+    {
+        var key = registryBaseKey.OpenSubKey(string.Format(RegistryBase, Settings.Settings.ApplicationIdentifier));
+        if (key == null) return true;
+        return !Convert.ToBoolean(key.GetValue("DisableAutoUpdate", false));
     }
 
     /// <summary>
