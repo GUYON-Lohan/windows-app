@@ -13,20 +13,39 @@ using System.Windows.Media;
 using System.IO;
 using System.Diagnostics;
 using System.Threading;
+using Microsoft.Win32;
 
 namespace App.Library.Utility;
 
 public static class UpdateChecker
 {
     private const string UpdateUrlBase = "{0}/windows/{1}/update.json"; // {0} has to be replaced with the base url from the settings and {1} has to be replaced with the arch
+    private const string RegistryBase = @"Software\{0}"; // {0} has to be replaced with the applicationIdentifier
+
     public static UpdateResponseRootDto UpdateData { get; set; } = new();       
     public static bool IsUpdateAvailable { get; set; }
     public static SemVersion? MinimalSupportedVersion { get; set; } 
     public static string NewVersion { get; set; }
-    
+
+
+
     // http objects
     public static bool CheckIfUpdateAvailable()
     {
+        var skipUpdateCheck = true;
+        using (var key = Registry.CurrentUser.OpenSubKey(string.Format(RegistryBase, Settings.Settings.ApplicationIdentifier)))
+        {
+            if (key != null)
+            {
+                skipUpdateCheck = Convert.ToBoolean(key.GetValue("DisableAutoUpdate", false));
+            }
+        }
+
+        if (skipUpdateCheck)
+        {
+            return false;
+        }
+
         DownloadUpdateJson();
         NewVersion = UpdateData.CurrentVersion;
         var parsedVersion = Version.Parse(UpdateData.CurrentVersion);
