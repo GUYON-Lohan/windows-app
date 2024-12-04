@@ -83,6 +83,7 @@
     <Compile Include="ViewModels\RedirectViewModel.cs" />
     <Compile Include="ViewModels\SelectInstitutionViewModel.cs" />
     <Compile Include="ViewModels\SelectProfileViewModel.cs" />
+    <Compile Include="ViewModels\ConfirmViewModel.cs" />
     <Compile Include="ViewModels\StatusViewModel.cs" />
     <Compile Include="ViewModels\TermsOfUseViewModel.cs" />
     <Page Include="AppWindowChrome.xaml">
@@ -154,6 +155,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Templates\SelectProfileTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Templates\ConfirmTemplate.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

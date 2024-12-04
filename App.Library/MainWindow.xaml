@@ -20,9 +20,8 @@
     MinHeight="420"
     Closing="MainWindow_OnClosing"
     mc:Ignorable="d"
-    WindowStartupLocation="CenterScreen"
-    WindowStyle="ToolWindow"
-    SizeToContent="Width">
+    WindowStartupLocation="CenterOwner"
+    ResizeMode="CanMinimize">
 
     <Window.Resources>
         <ResourceDictionary>
