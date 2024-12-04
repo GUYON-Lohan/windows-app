@@ -640,4 +640,16 @@ Uitzondering: {0}</value>
   <data name="UpdateCurrentFileNewer" xml:space="preserve">
     <value>De geinstallerde {0} is is ouder dan deze versie, wilt u deze applicatie updaten?</value>
   </data>
+  <data name="UpdateAvailableMessage" xml:space="preserve">
+    <value>Er is een nieuwe versie van {0} beschikbaar. Momenteel heb je versie {1} en kan deze updaten naar {2}. 
+
+Wil je deze nieuwe versie downloaden en installeren?</value>
+  </data>
+  <data name="VersionNoLongerSupported" xml:space="preserve">
+    <value>Deze versie van {0} wordt niet langer ondersteund. Je gebruikt momenteel versie {1}, terwijl de minimaal ondersteunde versie {2} is.
+
+Nieuwste versie is {3}, wil je deze downloaden en installeren?
+
+Als je op "Nee" klikt, wordt {0} afgesloten.</value>
+  </data>
 </root>

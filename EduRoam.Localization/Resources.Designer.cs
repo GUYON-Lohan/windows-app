@@ -1373,6 +1373,17 @@ namespace EduRoam.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to A new version of {0} is available. You currently have version {1}, and it can be updated to version {2}. 
+        ///
+        ///Would you like to download and install this new version?.
+        /// </summary>
+        public static string UpdateAvailableMessage {
+            get {
+                return ResourceManager.GetString("UpdateAvailableMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The installed version of {0} is older then this version. Do you want to update?.
         /// </summary>
         public static string UpdateCurrentFileNewer {
@@ -1414,6 +1425,19 @@ namespace EduRoam.Localization {
         public static string VersionDebugNoVersion {
             get {
                 return ResourceManager.GetString("VersionDebugNoVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This version of {0} is no longer supported. You are using version {1} while the minimal supported version is {2}.
+        ///
+        ///Newest version is {3}, do you want to download and install?
+        ///
+        ///If you click &quot;No&quot; {0} will exit..
+        /// </summary>
+        public static string VersionNoLongerSupported {
+            get {
+                return ResourceManager.GetString("VersionNoLongerSupported", resourceCulture);
             }
         }
         

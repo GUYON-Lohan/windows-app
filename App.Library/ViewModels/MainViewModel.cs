@@ -23,6 +23,7 @@ using System.Windows;
 
 using NETWORKLIST;
 using App.Library.Properties;
+using Semver;
 
 namespace App.Library.ViewModels
 {
@@ -200,6 +201,43 @@ namespace App.Library.ViewModels
         public void SetStartContent()
         {
             var status = new StatusTask().GetStatus();
+
+            #region UpdateChecker
+
+            void OnConfirmUpdate()
+            {
+                UpdateChecker.DownloadUpdate();
+            }
+
+            void OnDenyUpdate()
+            {
+                // User doesn't want to update, lets honor it and just tell the app that there is NO update available
+                UpdateChecker.IsUpdateAvailable = false;
+                this.SetStartContent();
+            }
+
+
+            void OnDenyUnsupported()
+            {
+                Application.Current.Shutdown(1);
+            }
+
+            if (SemVersion.ComparePrecedence(SelfInstaller.DefaultInstance.GetCurrentVersion(), UpdateChecker.MinimalSupportedVersion) == -1)
+            {
+                this.SetActiveContent(new ConfirmViewModel(this, string.Format(EduRoam.Localization.Resources.VersionNoLongerSupported, Settings.Settings.ApplicationIdentifier, SelfInstaller.DefaultInstance.GetCurrentVersionString(), UpdateChecker.MinimalSupportedVersion, UpdateChecker.NewVersion), confirmOnly: false, OnConfirmUpdate, OnDenyUnsupported));
+
+                return;
+            }
+
+            if (UpdateChecker.IsUpdateAvailable)
+            {
+                this.SetActiveContent(new ConfirmViewModel(this, string.Format(EduRoam.Localization.Resources.UpdateAvailableMessage, Settings.Settings.ApplicationIdentifier, SelfInstaller.DefaultInstance.GetCurrentVersionString(), UpdateChecker.NewVersion), confirmOnly: false, OnConfirmUpdate, OnDenyUpdate));
+
+
+
+                return;
+            }
+            #endregion
 
             if (!string.IsNullOrEmpty(Settings.Settings.EapConfigFileLocation))
             {

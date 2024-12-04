@@ -406,20 +406,27 @@ namespace EduRoam.Connect.Install
             return arg.Replace("%", "^%").Replace(" ", "^ ");
         }
 
-        #region AutoInstaller helper functions
+        #region AutoInstaller and UpdateChecker helper functions
         /// <summary>
+        /// For AutoInstaller, location is Install Path
         /// </summary>
         public bool CanBeUpdated()
         {
             var installedVersion = this.GetFileVersion(this.InstallExePath);
             var runningVersion = this.GetFileVersion(System.Reflection.Assembly.GetEntryAssembly()!.Location);
 
-            if(SemVersion.ComparePrecedence(installedVersion, runningVersion) == -1)
-            {
-                return true;
-            }
+            return (SemVersion.ComparePrecedence(installedVersion, runningVersion) == -1);
+        }
 
-            return false;
+        /// <summary>
+        /// For UpdateChecker, location is Current path
+        /// </summary>
+        /// <param name="newVersion"></param>
+        /// <returns></returns>
+        public bool CanBeUpdated(SemVersion newVersion)
+        {
+            var installedVersion = this.GetCurrentVersion();
+            return (SemVersion.ComparePrecedence(installedVersion, newVersion) == -1);
         }
 
         /// <summary>
@@ -452,7 +459,6 @@ namespace EduRoam.Connect.Install
             Process.Start(this.InstallExePath);
         }
 
-
         private SemVersion GetFileVersion(string path)
         {
             var fileVersion = FileVersionInfo.GetVersionInfo(path);
@@ -460,9 +466,11 @@ namespace EduRoam.Connect.Install
             var splittedVersion = v.Split(".".ToCharArray());
 
 
-            var t = new SemVersion(int.Parse(splittedVersion[0]), int.Parse(splittedVersion[1]), int.Parse(splittedVersion[2]));
-            return t;
+            return new SemVersion(int.Parse(splittedVersion[0]), int.Parse(splittedVersion[1]), int.Parse(splittedVersion[2]));
         }
+
+        public SemVersion GetCurrentVersion() => this.GetFileVersion(ThisExePath);
+        public string GetCurrentVersionString() => this.GetCurrentVersion().ToString();
         #endregion
     }
 
