@@ -203,19 +203,7 @@ namespace App.Library.ViewModels
 
             if (!string.IsNullOrEmpty(Settings.Settings.EapConfigFileLocation))
             {
-                var message = status.ActiveProfile ? EduRoam.Localization.Resources.AlreadyEapConfigActive : EduRoam.Localization.Resources.InstallCurrentlySelectedEapConfig;
-                
-                this.SetActiveContent(new ConfirmViewModel(this, message, false, OnConfirm, OnDeny));
-
-                void OnConfirm()
-                {
-                    this.LoadEapFile(Settings.Settings.EapConfigFileLocation!);
-                }
-
-                void OnDeny()
-                {
-                    this.SetActiveContent(new StatusViewModel(this));
-                }
+                this.LoadEapFile(Settings.Settings.EapConfigFileLocation!);
             }
             else if (status.ActiveProfile)
             {
