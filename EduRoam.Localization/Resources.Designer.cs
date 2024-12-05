@@ -1068,9 +1068,9 @@ namespace EduRoam.Localization {
         /// <summary>
         ///   Looks up a localized string similar to Oke.
         /// </summary>
-        public static string OkeText {
+        public static string OkText {
             get {
-                return ResourceManager.GetString("OkeText", resourceCulture);
+                return ResourceManager.GetString("OkText", resourceCulture);
             }
         }
         

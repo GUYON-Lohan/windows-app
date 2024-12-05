@@ -610,7 +610,7 @@ Exception: {0}</value>
   <data name="NoText" xml:space="preserve">
     <value>No</value>
   </data>
-  <data name="OkeText" xml:space="preserve">
+  <data name="OkText" xml:space="preserve">
     <value>Oke</value>
   </data>
   <data name="NoConnection" xml:space="preserve">

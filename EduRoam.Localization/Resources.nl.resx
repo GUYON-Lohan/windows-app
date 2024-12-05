@@ -604,8 +604,8 @@ Uitzondering: {0}</value>
   <data name="NoText" xml:space="preserve">
     <value>Nee</value>
   </data>
-  <data name="OkeText" xml:space="preserve">
-    <value>Oke</value>
+  <data name="OkText" xml:space="preserve">
+    <value>OK</value>
   </data>
   <data name="NoConnection" xml:space="preserve">
     <value>eduroam vereist een actieve internetverbinding.</value>
