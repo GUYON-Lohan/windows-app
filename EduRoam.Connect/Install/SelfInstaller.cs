@@ -218,13 +218,11 @@ namespace EduRoam.Connect.Install
                     Registry.SetValue(this.rnsUninstall, key, value);
                 });
 
-            // Create SubKey in Regex for file association (.eap/.eap-config)
-            var fileRegEap = Registry.CurrentUser.CreateSubKey("Software\\Classes\\.eap");
-            fileRegEap.CreateSubKey("shell\\open\\command").SetValue("", $"{this.InstallExePath} /install-eap-config \"%1\"");
-            fileRegEap.Close();
-
+            // Add file association
             var fileRegEapConfig = Registry.CurrentUser.CreateSubKey("Software\\Classes\\.eap-config");
-            fileRegEapConfig.CreateSubKey("shell\\open\\command").SetValue("", $"{this.InstallExePath} /install-eap-config \"%1\"");
+            fileRegEapConfig.CreateSubKey("shell\\open\\command").SetValue(null, $"{this.InstallExePath} \"%1\"");
+            // TODO: Use a document icon instead of the same icon as the exe file
+            fileRegEapConfig.CreateSubKey("DefaultIcon").SetValue(null, $"{this.InstallExePath}");
             fileRegEapConfig.Close();
 
             // Add shortcut to start menu
@@ -356,6 +354,18 @@ namespace EduRoam.Connect.Install
             {
                 ts.RootFolder.DeleteTask(this.ScheduledTaskName,
                     exceptionOnNotExists: false);
+            }
+
+            // remove file association
+            var fileRegEapConfig = Registry.CurrentUser.OpenSubKey("Software\\Classes\\.eap-config");
+            if (fileRegEapConfig != null) {
+                var subkey = fileRegEapConfig.OpenSubKey("shell\\open\\command");
+                // If .eap-config is still ours, remove the file association
+                if (string.Equals(subkey?.GetValue(null), $"{this.InstallExePath} \"%1\""))
+                {
+                    Registry.CurrentUser.DeleteSubKeyTree("Software\\Classes\\.eap-config", false);
+                }
+                fileRegEapConfig.Close();
             }
 
             // remove registry entries
