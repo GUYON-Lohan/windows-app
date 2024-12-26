@@ -31,14 +31,6 @@ namespace App.Library
             var force = false;
             switch (args[0].ToLowerInvariant())
             {
-                case "/?":
-                case "/help":
-                    {
-                        ShowHelpText();
-
-                        return true; // terminate after
-                    }
-
                 case "/install":
                     {
                         InstallTask.Install();
@@ -89,8 +81,16 @@ namespace App.Library
                 case "/close":
                 case "/background":
                     return true; // Deprecated flags, just terminate
+
+                case "/?":
+                case "/help":
+                default:
+                    {
+                        ShowHelpText();
+
+                        return true; // terminate after
+                    }
             }
-            return false;
         }
 
         private static void ShowHelpText() =>
