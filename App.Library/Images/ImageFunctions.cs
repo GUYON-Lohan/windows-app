@@ -58,15 +58,14 @@ namespace App.Library.Images
                     "html,body {" +
                         "margin: 0;" +
                         "padding: 0;" +
+                        "width: 100%;" +
+                        "height: 100%;" +
                         "overflow: hidden;" +
-                        "display: flex;" +
-                        "justify-content: center;" +
+                        "text-align: center;" +
                     "}" +
                     "img {" +
-                        "max-width: 100%" +
-                        "max-height: 100%" +
-                        "width: auto;" +
-                        "height: auto;" +
+                        "max-width: 100%;" +
+                        "max-height: 100%;" +
                     "}" +
                 "</style>" +
                 "<img src=\'data:image/svg+xml;base64," + base64 + "\'>";
