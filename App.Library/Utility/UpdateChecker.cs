@@ -70,13 +70,26 @@ public static class UpdateChecker
             {
                 await client.DownloadFileTaskAsync(UpdateData.DownloadUrl, tempPath);
 
-                var process = new ProcessStartInfo
+                tempPath = @"C:\Users\bonric\source\repos\geteduroam\windows-app\Eduroam.App\bin\x64\Debug\geteduroam.exe";
+
+                var scriptContent = $@"
+Start-Sleep -Seconds 2
+Start-Process -FilePath ""{tempPath}"" -ArgumentList '/install true'
+";
+
+                var scriptPath = Path.Combine(Path.GetTempPath(), "update.ps1");
+                File.WriteAllText(scriptPath, scriptContent);
+
+                var startInfo = new ProcessStartInfo
                 {
-                    FileName = tempPath,
-                    Arguments = "/install true"
+                    FileName = "powershell.exe",
+                    Arguments = $"-NoProfile -WindowStyle Hidden -File \"{scriptPath}\"",
+                    UseShellExecute = true,
+                    CreateNoWindow = true,
+                    WindowStyle = ProcessWindowStyle.Hidden
                 };
 
-                Process.Start(process);
+                Process.Start(startInfo);
                 Environment.Exit(0);
             }
 

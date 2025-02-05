@@ -1,10 +1,12 @@
-﻿using EduRoam.Connect.Tasks;
+﻿using EduRoam.Connect.Install;
+using EduRoam.Connect.Tasks;
 using EduRoam.Localization;
 
 using Microsoft.Toolkit.Uwp.Notifications;
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
@@ -32,16 +34,23 @@ namespace App.Library
             switch (args[0].ToLowerInvariant())
             {
                 case "/install":
-                {
-                    InstallTask.Install();
-
-                    if (args.Length == 2)
                     {
-                        bool.TryParse(args[1], out var forceStart);
+                        InstallTask.Install();
 
-                        return !forceStart;
-                    }
-                    return true; // terminate after
+                        if (args.Length == 2)
+                        {
+                            bool.TryParse(args[1], out var forceStart);
+                            if (forceStart)
+                            {
+                                var process = new ProcessStartInfo
+                                {
+                                    FileName = SelfInstaller.DefaultInstance.InstallExePath
+                                };
+
+                                Process.Start(process);
+                            }
+                        }
+                        return true; // terminate after
                     }
 
                 case "/uninstall":
