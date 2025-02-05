@@ -37,19 +37,6 @@ namespace App.Library
                     {
                         InstallTask.Install();
 
-                        if (args.Length == 2)
-                        {
-                            bool.TryParse(args[1], out var forceStart);
-                            if (forceStart)
-                            {
-                                var process = new ProcessStartInfo
-                                {
-                                    FileName = SelfInstaller.DefaultInstance.InstallExePath
-                                };
-
-                                Process.Start(process);
-                            }
-                        }
                         return true; // terminate after
                     }
 

@@ -1,18 +1,13 @@
 ﻿using EduRoam.Connect.Install;
 using Semver;
 
-using System.Net.Http;
 using System.Net;
 using System;
-using System.Reflection;
 using System.Threading.Tasks;
-using System.Security.Policy;
 using Newtonsoft.Json;
 using App.Library.Models;
-using System.Windows.Media;
 using System.IO;
 using System.Diagnostics;
-using System.Threading;
 using Microsoft.Win32;
 
 namespace App.Library.Utility;
@@ -64,7 +59,7 @@ public static class UpdateChecker
         try
         {
             var tempPath = Path.Combine(Path.GetTempPath(), $"{Guid.NewGuid().ToString()}_{Settings.Settings.ApplicationIdentifier}.exe");
-
+            var installedPath = SelfInstaller.DefaultInstance.InstallExePath;
 
             using (var client = new WebClient())
             {
@@ -74,7 +69,10 @@ public static class UpdateChecker
                 var batchFileContent = $@"
 @echo off
 timeout /t 2 /nobreak
-start """" ""{tempPath}"" /install true
+start """" ""{tempPath}"" /install
+timeout /t 2 /nobreak
+start """" ""{installedPath}""
+del ""{tempPath}""
 del ""%~f0""
 ";
                 File.WriteAllText(batchFilePath, batchFileContent);
