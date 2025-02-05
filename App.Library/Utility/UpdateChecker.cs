@@ -70,8 +70,6 @@ public static class UpdateChecker
             {
                 await client.DownloadFileTaskAsync(UpdateData.DownloadUrl, tempPath);
 
-                tempPath = @"C:\Users\bonric\source\repos\geteduroam\windows-app\Eduroam.App\bin\x64\Debug\geteduroam.exe";
-
                 var scriptContent = $@"
 Start-Sleep -Seconds 2
 Start-Process -FilePath ""{tempPath}"" -ArgumentList '/install true'
