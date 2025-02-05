@@ -23,7 +23,9 @@ namespace Govroam.App
             LanguageResources.Culture = System.Globalization.CultureInfo.CurrentUICulture;
             Settings.OAuthClientId = "app.getgovroam.win";
             Settings.ApplicationIdentifier = "getgovroam";
+            Settings.ApplicationTitle = "govroam";
             Settings.UpdateBaseUrl = "https://getgovroam.nl";
+            Settings.HelpUrl = "https://govroam.nl/support";
 
             if (e.Args.Any()
                 && CommandLineArgumentsHandler.PreGuiCommandLineArgs(e.Args))

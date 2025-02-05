@@ -16,7 +16,7 @@ namespace EduRoam.CLI
 
         public Engine()
         {
-            this.rootCommand = new RootCommand(ApplicationResources.GetString("AppTitle"));
+            this.rootCommand = new RootCommand(AppTitle);
             var commandsList = GetCommandList();
 
             foreach (var command in commandsList)
@@ -48,6 +48,20 @@ namespace EduRoam.CLI
             }
 
             return commands;
+        }
+
+        public static string AppTitle
+        {
+            get
+            {
+                var appAssemblyName = Assembly.GetEntryAssembly()!.GetName();
+
+                if (!string.IsNullOrWhiteSpace(appAssemblyName.CultureName))
+                {
+                    return appAssemblyName.CultureName;
+                }
+                return appAssemblyName.Name ?? "geteduroam";
+            }
         }
     }
 }

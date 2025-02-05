@@ -632,9 +632,6 @@ Exception: {0}</value>
   <data name="CheckCertificateToastP2" xml:space="preserve">
     <value>You have {0} days left, please renew your account.</value>
   </data>
-  <data name="AppTitle" xml:space="preserve">
-    <value />
-  </data>
   <data name="UpdateAvailable" xml:space="preserve">
     <value>Update available</value>
   </data>
@@ -652,5 +649,14 @@ Would you like to download and install this new version?</value>
 Newest version is {3}, do you want to download and install?
 
 If you click "No" {0} will exit.</value>
+  </data>
+  <data name="Connected" xml:space="preserve">
+    <value>You are now connected to {0}.</value>
+  </data>
+  <data name="UninstallNotificationTitle" xml:space="preserve">
+    <value>Uninstall {0}</value>
+  </data>
+  <data name="ButtonAppConnect" xml:space="preserve">
+    <value>Connect to {0}</value>
   </data>
 </root>

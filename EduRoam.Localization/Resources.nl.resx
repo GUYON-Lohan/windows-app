@@ -626,9 +626,6 @@ Uitzondering: {0}</value>
   <data name="CheckCertificateToastP2" xml:space="preserve">
     <value>U heeft {0} dagen, verleng alstublieft uw account.</value>
   </data>
-  <data name="AppTitle" xml:space="preserve">
-    <value>Eduroam</value>
-  </data>
   <data name="UpdateAvailable" xml:space="preserve">
     <value>Update beschikbaar</value>
   </data>
@@ -646,5 +643,14 @@ Wil je deze nieuwe versie downloaden en installeren?</value>
 Nieuwste versie is {3}, wil je deze downloaden en installeren?
 
 Als je op "Nee" klikt, wordt {0} afgesloten.</value>
+  </data>
+  <data name="Connected" xml:space="preserve">
+    <value>Je bent nu verbonden met {0}.</value>
+  </data>
+  <data name="UninstallNotificationTitle" xml:space="preserve">
+    <value>Deïnstalleer {0}</value>
+  </data>
+  <data name="ButtonAppConnect" xml:space="preserve">
+    <value>Verbind met {0}</value>
   </data>
 </root>

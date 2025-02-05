@@ -1,4 +1,6 @@
-﻿using EduRoam.Connect.Install;
+﻿using App.Settings;
+
+using EduRoam.Connect.Install;
 using EduRoam.Localization;
 
 using System;
@@ -28,7 +30,7 @@ namespace EduRoam.Connect.Tasks
                         var extinguishMe = new ProcessStartInfo
                         {
                             FileName = "mshta",
-                            Arguments = $"vbscript:Execute(\"msgbox \"\"{Resources.UninstallNotification}\"\", 0, \"\"{ApplicationResources.GetString("UninstallNotificationTitle")}\"\":close\")",
+                            Arguments = $"vbscript:Execute(\"msgbox \"\"{Resources.UninstallNotification}\"\", 0, \"\"{string.Format(Resources.UninstallNotificationTitle, Settings.AppTitle)}\"\":close\")",
                             WindowStyle = ProcessWindowStyle.Normal, // Shows a console in the taskbar, but it's hidden
                             CreateNoWindow = true,
                             WorkingDirectory = "C:\\"
@@ -40,7 +42,7 @@ namespace EduRoam.Connect.Tasks
                         var extinguishMe = new ProcessStartInfo
                         {
                             FileName = "mshta",
-                            Arguments = $"vbscript:Execute(\"msgbox \"\"{Resources.UninstallNotification}\"\", 0, \"\"{ApplicationResources.GetString("UninstallNotificationTitle")}\"\":close\")",
+                            Arguments = $"vbscript:Execute(\"msgbox \"\"{Resources.UninstallNotification}\"\", 0, \"\"{string.Format(Resources.UninstallNotificationTitle, Settings.AppTitle)}\"\":close\")",
                             WindowStyle = ProcessWindowStyle.Normal, // Shows a console in the taskbar, but it's hidden
                             CreateNoWindow = true,
                             WorkingDirectory = "C:\\"
