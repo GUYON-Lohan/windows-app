@@ -3,7 +3,6 @@ using App.Library.Utility;
 
 using Microsoft.Extensions.DependencyInjection;
 
-using System.Linq;
 using System.Windows;
 
 using LanguageResources = EduRoam.Localization.Resources;
@@ -21,19 +20,20 @@ namespace Eduroam.App
         {
             LanguageResources.Culture = System.Globalization.CultureInfo.CurrentUICulture;
 
-            if (e.Args.Any()
-                && CommandLineArgumentsHandler.PreGuiCommandLineArgs(e.Args))
+            if (CommandLineArgumentsHandler.PreGuiCommandLineArgs(e.Args))
             {
                 this.Shutdown(1);
+                return;
             }
 
             #region SelfInstaller AutoInstall
             var resultObject = AutoInstaller.CheckIfInstalled();
-            if(!resultObject)
+            if (!resultObject)
             {
                 AutoInstaller.StartApplicationFromInstallLocation();
                 this.Shutdown(1);
-            } 
+                return;
+            }
             #endregion
 
 

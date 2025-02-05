@@ -4,7 +4,6 @@ using App.Settings;
 
 using Microsoft.Extensions.DependencyInjection;
 
-using System.Linq;
 using System.Windows;
 
 using LanguageResources = EduRoam.Localization.Resources;
@@ -27,10 +26,10 @@ namespace Govroam.App
             Settings.UpdateBaseUrl = "https://getgovroam.nl";
             Settings.HelpUrl = "https://govroam.nl/support";
 
-            if (e.Args.Any()
-                && CommandLineArgumentsHandler.PreGuiCommandLineArgs(e.Args))
+            if (CommandLineArgumentsHandler.PreGuiCommandLineArgs(e.Args))
             {
                 this.Shutdown(1);
+                return;
             }
 
             #region SelfInstaller AutoInstall
@@ -39,6 +38,7 @@ namespace Govroam.App
             {
                 AutoInstaller.StartApplicationFromInstallLocation();
                 this.Shutdown(1);
+                return;
             }
             #endregion
 
