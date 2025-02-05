@@ -86,20 +86,20 @@ namespace EduRoam.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string AppTitle {
-            get {
-                return ResourceManager.GetString("AppTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Are you sure you want to continue?.
         /// </summary>
         public static string AreYouSure {
             get {
                 return ResourceManager.GetString("AreYouSure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Connect to {0}.
+        /// </summary>
+        public static string ButtonAppConnect {
+            get {
+                return ResourceManager.GetString("ButtonAppConnect", resourceCulture);
             }
         }
         
@@ -346,6 +346,15 @@ namespace EduRoam.Localization {
         public static string ConfiguredEap {
             get {
                 return ResourceManager.GetString("ConfiguredEap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You are now connected to {0}..
+        /// </summary>
+        public static string Connected {
+            get {
+                return ResourceManager.GetString("Connected", resourceCulture);
             }
         }
         
@@ -1349,6 +1358,15 @@ namespace EduRoam.Localization {
         public static string UninstallNotification {
             get {
                 return ResourceManager.GetString("UninstallNotification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Uninstall {0}.
+        /// </summary>
+        public static string UninstallNotificationTitle {
+            get {
+                return ResourceManager.GetString("UninstallNotificationTitle", resourceCulture);
             }
         }
         

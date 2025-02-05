@@ -22,7 +22,6 @@ using System.Threading.Tasks;
 using System.Windows;
 
 using NETWORKLIST;
-using App.Library.Properties;
 using Semver;
 
 namespace App.Library.ViewModels
@@ -70,6 +69,10 @@ namespace App.Library.ViewModels
                     {   
                         Thread.Sleep(1000);
                     }
+
+                    #region Updater
+                    await UpdateChecker.CheckIfUpdateAvailableAsync();
+                    #endregion
 
                     await this.idpDownloader.LoadProviders();
 
@@ -148,19 +151,7 @@ namespace App.Library.ViewModels
             }
         }
 
-        public string AppTitle
-        {
-            get
-            {
-                var appAssemblyName = Assembly.GetEntryAssembly()!.GetName();
-
-                if (!string.IsNullOrWhiteSpace(appAssemblyName.CultureName))
-                {
-                    return appAssemblyName.CultureName;
-                }
-                return appAssemblyName.Name ?? "geteduroam";
-            }
-        }
+        public string AppTitle => Settings.Settings.AppTitle;
 
         public string PageTitle
         {
@@ -206,7 +197,10 @@ namespace App.Library.ViewModels
 
             void OnConfirmUpdate()
             {
-                UpdateChecker.DownloadUpdate();
+                Task.Run(async () =>
+                {
+                    await UpdateChecker.DownloadUpdateAsync();
+                });
             }
 
             void OnDenyUpdate()
@@ -565,7 +559,7 @@ namespace App.Library.ViewModels
 
         public void OpenHelp()
         {
-            var helpUrl = ApplicationResources.GetString("HelpUrl");
+            var helpUrl = Settings.Settings.HelpUrl;
 
             if (!string.IsNullOrWhiteSpace(helpUrl))
             {

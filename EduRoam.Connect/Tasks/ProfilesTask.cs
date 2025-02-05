@@ -1,4 +1,6 @@
-﻿using EduRoam.Connect.Exceptions;
+﻿using App.Settings;
+
+using EduRoam.Connect.Exceptions;
 using EduRoam.Connect.Identity;
 using EduRoam.Connect.Store;
 using EduRoam.Localization;
@@ -64,7 +66,7 @@ namespace EduRoam.Connect.Tasks
 
         public string GetCurrentProfileName()
         {
-            return this.store.IdentityProvider?.DisplayName ?? ApplicationResources.GetString("DefaultIdentityProvider");
+            return this.store.IdentityProvider?.DisplayName ?? Settings.AppTitle;
         }
 
         public void RemoveCurrentProfile()

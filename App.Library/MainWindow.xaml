@@ -21,7 +21,7 @@
     Closing="MainWindow_OnClosing"
     mc:Ignorable="d"
     WindowStartupLocation="CenterOwner"
-    ResizeMode="CanMinimize">
+    ResizeMode="CanResize">
 
     <Window.Resources>
         <ResourceDictionary>

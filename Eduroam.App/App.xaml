@@ -8,6 +8,5 @@
                 <ResourceDictionary Source="Styling/Styling.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-      
     </Application.Resources>
 </Application>
