@@ -186,7 +186,7 @@
     <value>Opnieuw inloggen</value>
   </data>
   <data name="CommandDescriptionRefresh" xml:space="preserve">
-    <value>Ververs inloggegevens</value>
+    <value>Vernieuw inloggegevens</value>
   </data>
   <data name="CommandDescriptionRemove" xml:space="preserve">
     <value>Verwijder het geconfigureerde Wi-Fi-profiel en/of rootcertificaten</value>
@@ -243,18 +243,18 @@ Kan geen verbinding maken met eduroam.</value>
     <value>Klaar</value>
   </data>
   <data name="ErrorApi" xml:space="preserve">
-    <value>API foutmelding</value>
+    <value>API fout</value>
   </data>
   <data name="ErrorCannotConnectWithServer" xml:space="preserve">
     <value>Kan geen verbinding maken met de server.
 
 Zorg ervoor dat je verbinding hebt met internet en probeer het opnieuw.
 
-Uitzondering: {0}</value>
+Exceptie: {0}</value>
   </data>
   <data name="ErrorCannotFetchTokens" xml:space="preserve">
     <value>Kan token-json niet ophalen.
-Uitzondering: {0}</value>
+Exceptie: {0}</value>
   </data>
   <data name="ErrorCannotRemoveWLANProfile" xml:space="preserve">
     <value>Sommige WLAN-profielen konden niet worden verwijderd</value>
@@ -287,16 +287,16 @@ Echter, we kunnen momenteel geen verbinding maken met {0}, het netwerk is buiten
     <value>Gebruikersnaam moet eindigen op @{0}</value>
   </data>
   <data name="ErrorCredentialsSpecialCharacters" xml:space="preserve">
-    <value>Karakters zoals . en @ kunnen niet naast elkaar liggen</value>
+    <value>Tekens zoals . en @ kunnen niet naast elkaar liggen</value>
   </data>
   <data name="ErrorEapConfigCorrupted" xml:space="preserve">
     <value>Het geselecteerde EAP-configuratiebestand is beschadigd. Kies een ander bestand.</value>
   </data>
   <data name="ErrorEapConfigInvalid" xml:space="preserve">
-    <value>Kon niet uit bestand lezen. Zorg ervoor dat u een geldig EAP-configuratiebestand selecteert.</value>
+    <value>Kan niet uit bestand lezen. Zorg ervoor dat u een geldig EAP-configuratiebestand selecteert.</value>
   </data>
   <data name="ErrorEapConfigIsEmpty" xml:space="preserve">
-    <value>Kon geen verbinding maken, EAP-configuratie is leeg</value>
+    <value>Kan geen verbinding maken, EAP-configuratie is leeg</value>
   </data>
   <data name="ErrorEapNotConfigured" xml:space="preserve">
     <value>EAP kan niet worden geconfigureerd</value>
@@ -417,10 +417,10 @@ Uitzondering: {0}</value>
     <value>Opnieuw inloggen...</value>
   </data>
   <data name="MenuItemRefresh" xml:space="preserve">
-    <value>Inloggegevens verversen</value>
+    <value>Inloggegevens vernieuwen</value>
   </data>
   <data name="MenuItemRemoveCertificates" xml:space="preserve">
-    <value>Verwijder root certificaten...</value>
+    <value>Verwijder rootcertificaten...</value>
   </data>
   <data name="MenuItemRemoveProfile" xml:space="preserve">
     <value>Verwijder geconfigureerde Wi-Fi profiel...</value>
@@ -548,6 +548,9 @@ Uitzondering: {0}</value>
   </data>
   <data name="VersionRelease" xml:space="preserve">
     <value>{0}</value>
+  </data>
+  <data name="VersionReleaseNoVersion" xml:space="preserve">
+    <value>Geen versie</value>
   </data>
   <data name="WarningFileDoesNotExist" xml:space="preserve">
     <value>Het opgegeven bestand bestaat niet.</value>
