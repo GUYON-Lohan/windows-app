@@ -35,10 +35,14 @@ namespace App.Library
                 {
                     InstallTask.Install();
 
-                    bool.TryParse(args[1], out var forceStart);
-    
-                    return !forceStart;
-                }
+                    if (args.Length == 2)
+                    {
+                        bool.TryParse(args[1], out var forceStart);
+
+                        return !forceStart;
+                    }
+                    return true; // terminate after
+                    }
 
                 case "/uninstall":
                     {
