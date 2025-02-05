@@ -122,25 +122,20 @@
 
     /? :
             Toon deze helptekst
-    /hulp :
+    /help :
             Toon deze helptekst
-    /installeren:
-            Installeer dit binaire bestand op %USER%/AppData/Local
-    /verwijderen:
-            Verwijder dit binaire bestand uit %USER%/AppData/Local
-            met eventuele geconfigureerde gegevens
-    /achtergrond:
-            Start deze applicatie verborgen in de lade
-            (werkt alleen als het vanuit de installatiemap wordt uitgevoerd)
-    /dichtbij :
-            Sluit het huidige actieve exemplaar
-    /vernieuwen:
-            Vernieuw het gebruikerscertificaat met behulp van het vernieuwingstoken.
-            Wordt automatisch aangeroepen door een geplande taak in Windows.
-    /vernieuwingskracht:
-            Vernieuw het gebruikerscertificaat met behulp van het vernieuwingstoken.
-            Zal het profiel vernieuwen, zelfs als de geldigheidsperiode is verstreken
-            van het huidige clientcertificaat heeft nog meer dan een derde over</value>
+    /install :
+            Installeer dit programma in %USER%/AppData/Local
+    /uninstall :
+            Verwijder dit programma uit %USER%/AppData/Local,
+            en verwijder alle configuratie
+    /refresh :
+            Vernieuw het gebruikerscertificaat met behulp van het refresh token.
+            Bedoeld om automatisch aangeroepen te worden door een geplande taak in Windows.
+            Deze optie doet niets als het certificaat nog meer dan een derde van de geldigheidsperiode over heeft.
+    /refresh-force :
+            Vernieuw het gebruikerscertificaat met behulp van het refresh token,
+            ongeacht de geldigheid van het bestaande certificaat.</value>
   </data>
   <data name="AreYouSure" xml:space="preserve">
     <value>Weet je zeker dat je wilt doorgaan?</value>
