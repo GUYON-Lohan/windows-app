@@ -1,7 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using EduRoam.Connect.Identity;
 using EduRoam.Connect.Identity.v2;
+
+using static EduRoam.Connect.Identity.v2.LetsWifiDiscovery;
 
 namespace EduRoam.Connect.Converter
 {
@@ -20,11 +23,11 @@ namespace EduRoam.Connect.Converter
                 {
                     Country = provider.Country,
                     Id = provider.Id,
-                    Name = provider.Name.First().Display,
+                    Name = translate(provider.Name),
                     SearchTags = PopulateSearchTags(provider),
                     Profiles = provider.Profiles.Select(profile => new IdentityProviderProfile
                     {
-                        Name = profile.Name?.Count != 0 ? profile.Name.First().Display : provider.Name.First().Display,
+                        Name = profile.Name?.Count == 0 ? translate(provider.Name) : translate(profile.Name),
                         Id = profile.Id,
                         OAuth = profile.Type == "letswifi",
                         EapConfigEndpoint = profile.Type == "eap-config" ? profile.EapConfigEndpoint : null,
@@ -35,6 +38,19 @@ namespace EduRoam.Connect.Converter
             };
             
             return output;
+        }
+
+        private static string translate(List<DiscoveryName> name)
+        {
+            // TODO improve with GlobalizationPreferences.Languages if .NET 9 is available
+            // https://learn.microsoft.com/en-us/uwp/api/windows.system.userprofile.globalizationpreferences.languages
+            CultureInfo cultureInfo = CultureInfo.CurrentCulture;
+            foreach (var translatedName in name)
+            {
+                if (cultureInfo.Parent.Name == translatedName.Lang)
+                    return translatedName.Display;
+            }
+            return name.First().Display;
         }
 
         private static List<string> PopulateSearchTags(LetsWifiDiscovery.DiscoveryInstitution provider)
