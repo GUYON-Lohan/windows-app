@@ -365,7 +365,7 @@ Uitzondering: {0}</value>
   <data name="HoursLeft" xml:space="preserve">
     <value>{0} uur geldig</value>
   </data>
-  <data name="IsSure" xml:space="preserve">
+  <data name="ChoiceKeyYes" xml:space="preserve">
     <value>j</value>
   </data>
   <data name="LabelAccountValidFor" xml:space="preserve">
@@ -431,13 +431,10 @@ Uitzondering: {0}</value>
   <data name="MinutesLeft" xml:space="preserve">
     <value>{0} minuten resterend</value>
   </data>
-  <data name="No" xml:space="preserve">
-    <value>x</value>
-  </data>
   <data name="NoEAPConfig" xml:space="preserve">
     <value>Geen EAP-Config informatie om te tonen</value>
   </data>
-  <data name="NotSure" xml:space="preserve">
+  <data name="ChoiceKeyNo" xml:space="preserve">
     <value>n</value>
   </data>
   <data name="OAuthExplanation" xml:space="preserve">
@@ -583,18 +580,15 @@ Uitzondering: {0}</value>
     <value>Het door u gekozen bestandstype wordt niet ondersteund.</value>
   </data>
   <data name="WarnRealmMismatch" xml:space="preserve">
-    <value>/!\ Het domein voor de OuterIdentity wordt ingesteld op "{0}", maar het profiel specificeert "{1}"</value>
-  </data>
-  <data name="YesText" xml:space="preserve">
-    <value>Ja</value>
+    <value>Het domein voor de OuterIdentity wordt ingesteld op "{0}", maar het profiel specificeert "{1}"</value>
   </data>
   <data name="Yes" xml:space="preserve">
-    <value>✓</value>
+    <value>Ja</value>
   </data>
-  <data name="NoText" xml:space="preserve">
+  <data name="No" xml:space="preserve">
     <value>Nee</value>
   </data>
-  <data name="OkText" xml:space="preserve">
+  <data name="OK" xml:space="preserve">
     <value>OK</value>
   </data>
   <data name="NoConnection" xml:space="preserve">

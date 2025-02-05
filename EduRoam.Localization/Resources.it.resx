@@ -364,7 +364,7 @@ Errore: {0}</value>
   <data name="HoursLeft" xml:space="preserve">
     <value>Ancora {0} ore</value>
   </data>
-  <data name="IsSure" xml:space="preserve">
+  <data name="ChoiceKeyYes" xml:space="preserve">
     <value>s</value>
   </data>
   <data name="LabelAccountValidFor" xml:space="preserve">
@@ -430,23 +430,17 @@ Errore: {0}</value>
   <data name="MinutesLeft" xml:space="preserve">
     <value>Ancora {0} minuti</value>
   </data>
-  <data name="No" xml:space="preserve">
-    <value>x</value>
-    <comment>Used for user confirmation, as the 'yes' option</comment>
-  </data>
   <data name="NoEAPConfig" xml:space="preserve">
     <value>Nessuna informazione di configurazione EAP da mostrare </value>
   </data>
-  <data name="NotSure" xml:space="preserve">
+  <data name="ChoiceKeyNo" xml:space="preserve">
     <value>n</value>
-    <comment>Used for user confirmation, as the 'no' option</comment>
   </data>
   <data name="OAuthExplanation" xml:space="preserve">
     <value>Per proseguire è necessario autenticarsi nel browser, dovrebbe essersi aperta automaticamente una finestra.</value>
   </data>
   <data name="OAuthTitle" xml:space="preserve">
     <value>In attesa ...</value>
-    <comment>O</comment>
   </data>
   <data name="OptionDescriptionCertificatePath" xml:space="preserve">
     <value>Percorso del file del certificato</value>
@@ -588,10 +582,7 @@ Errore: {0}</value>
     <value>Il tipo di file che hai scelto non è supportato.</value>
   </data>
   <data name="WarnRealmMismatch" xml:space="preserve">
-    <value>/!\ Il realm della OuterIdentity sarà impostato a "{0}" ma il profilo ha specificato "{1}"</value>
-  </data>
-  <data name="Yes" xml:space="preserve">
-    <value>✓</value>
+    <value>Il realm della OuterIdentity sarà impostato a "{0}" ma il profilo ha specificato "{1}"</value>
   </data>
   <data name="NoConnection" xml:space="preserve">
     <value>eduroam necessita di una connessione ad internet attiva.</value>

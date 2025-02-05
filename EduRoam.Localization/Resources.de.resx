@@ -364,7 +364,7 @@ Ausnahmefehler: {0}</value>
   <data name="HoursLeft" xml:space="preserve">
     <value>{0} weitere Stunden</value>
   </data>
-  <data name="IsSure" xml:space="preserve">
+  <data name="ChoiceKeyYes" xml:space="preserve">
     <value>y</value>
   </data>
   <data name="LabelAccountValidFor" xml:space="preserve">
@@ -430,23 +430,17 @@ Ausnahmefehler: {0}</value>
   <data name="MinutesLeft" xml:space="preserve">
     <value>{0} weitere Minuten</value>
   </data>
-  <data name="No" xml:space="preserve">
-    <value>x</value>
-    <comment>Used for user confirmation, as the 'yes' option</comment>
-  </data>
   <data name="NoEAPConfig" xml:space="preserve">
     <value>Keine EAP Konfigurationsinformationen zum Anzeigen</value>
   </data>
-  <data name="NotSure" xml:space="preserve">
+  <data name="ChoiceKeyNo" xml:space="preserve">
     <value>n</value>
-    <comment>Used for user confirmation, as the 'no' option</comment>
   </data>
   <data name="OAuthExplanation" xml:space="preserve">
     <value>Jetzt sollte sich ein Browserfenster geöffnet haben, in dem Sie sich nei authentifizieren können.</value>
   </data>
   <data name="OAuthTitle" xml:space="preserve">
     <value>Warten ...</value>
-    <comment>O</comment>
   </data>
   <data name="OptionDescriptionCertificatePath" xml:space="preserve">
     <value>Pfad zum Zertifikat</value>
@@ -588,10 +582,7 @@ Ausnahmefehler: {0}</value>
     <value>Der angegebene Dateityp wird nicht unterstützt.</value>
   </data>
   <data name="WarnRealmMismatch" xml:space="preserve">
-    <value>/!\ Der Realm für die äußere Identität wird auf "{0}" gesetzt obwohl im Profil "{1}" angegeben ist</value>
-  </data>
-  <data name="Yes" xml:space="preserve">
-    <value>✓</value>
+    <value>Der Realm für die äußere Identität wird auf "{0}" gesetzt obwohl im Profil "{1}" angegeben ist</value>
   </data>
   <data name="NoConnection" xml:space="preserve">
     <value>geteduroam benötigt eine aktive Internetverbindung.</value>

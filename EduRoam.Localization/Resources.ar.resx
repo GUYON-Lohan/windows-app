@@ -127,7 +127,7 @@
             Install this binary to %USER%/AppData/Local
     /uninstall : 
             Uninstall this binary from %USER%/AppData/Local along
-            with any configured data
+            with any configured data.
     /refresh : 
             Refresh the user certificate using the refresh token.
             Is called automatically by a scheduled task in windows.
@@ -364,9 +364,6 @@
   <data name="HoursLeft" xml:space="preserve">
     <value>{0} ساعات إضافية</value>
   </data>
-  <data name="IsSure" xml:space="preserve">
-    <value>نعم</value>
-  </data>
   <data name="LabelAccountValidFor" xml:space="preserve">
     <value>حسابك صالح لـ</value>
   </data>
@@ -430,23 +427,14 @@
   <data name="MinutesLeft" xml:space="preserve">
     <value>{0}دقائق إضافية</value>
   </data>
-  <data name="No" xml:space="preserve">
-    <value>نعم</value>
-    <comment>Used for user confirmation, as the 'yes' option</comment>
-  </data>
   <data name="NoEAPConfig" xml:space="preserve">
     <value>لا توجد معلومات ضبط EAP لعرضها.</value>
-  </data>
-  <data name="NotSure" xml:space="preserve">
-    <value>لا</value>
-    <comment>Used for user confirmation, as the 'no' option</comment>
   </data>
   <data name="OAuthExplanation" xml:space="preserve">
     <value>للمتابعة، تحتاج إلى المصادقة في متصفحك، ومن المفترض أن يتم فتح نافذة تلقائيًا.</value>
   </data>
   <data name="OAuthTitle" xml:space="preserve">
     <value>في الانتظار...</value>
-    <comment>O</comment>
   </data>
   <data name="OptionDescriptionCertificatePath" xml:space="preserve">
     <value>مسار ملف الشهادة</value>
@@ -588,10 +576,13 @@
     <value>نوع الملف الذي اخترته غير مدعوم.</value>
   </data>
   <data name="WarnRealmMismatch" xml:space="preserve">
-    <value>/!\ سيتم تعيين نطاق OuterIdentity على "{0}" ولكن تم تحديد ملف التعريف "{1}"</value>
+    <value>سيتم تعيين نطاق OuterIdentity على "{0}" ولكن تم تحديد ملف التعريف "{1}"</value>
   </data>
   <data name="Yes" xml:space="preserve">
-    <value>✓</value>
+    <value>نعم</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>لا</value>
   </data>
   <data name="NoConnection" xml:space="preserve">
     <value>يتطلب eduroam اتصالاً نشطًا بالإنترنت.</value>

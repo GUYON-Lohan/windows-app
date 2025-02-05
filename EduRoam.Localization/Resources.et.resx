@@ -364,8 +364,8 @@ Erand: {0}</value>
   <data name="HoursLeft" xml:space="preserve">
     <value>{0} tundi veel</value>
   </data>
-  <data name="IsSure" xml:space="preserve">
-    <value>jah</value>
+  <data name="No" xml:space="preserve">
+    <value>Ei</value>
   </data>
   <data name="LabelAccountValidFor" xml:space="preserve">
     <value>Su konto kehtib: </value>
@@ -430,23 +430,14 @@ Erand: {0}</value>
   <data name="MinutesLeft" xml:space="preserve">
     <value>{0} minutit veel</value>
   </data>
-  <data name="No" xml:space="preserve">
-    <value>ei</value>
-    <comment>Used for user confirmation, as the 'yes' option</comment>
-  </data>
   <data name="NoEAPConfig" xml:space="preserve">
     <value>Ei ole EAP Config (seadistamise) teavet, mida näidata</value>
-  </data>
-  <data name="NotSure" xml:space="preserve">
-    <value>ei ole kindel</value>
-    <comment>Used for user confirmation, as the 'no' option</comment>
   </data>
   <data name="OAuthExplanation" xml:space="preserve">
     <value>Jätkamiseks pead end brauseris autentima, aken peaks olema automaatselt avanenud</value>
   </data>
   <data name="OAuthTitle" xml:space="preserve">
     <value>Ootel...</value>
-    <comment>O</comment>
   </data>
   <data name="OptionDescriptionCertificatePath" xml:space="preserve">
     <value>Sertifikaadi asukoht (filepath)</value>
@@ -587,10 +578,10 @@ Erand: {0}</value>
     <value>Valitud failitüüp ei ole toetatud.</value>
   </data>
   <data name="WarnRealmMismatch" xml:space="preserve">
-    <value>/!\ Välise identiteedi (OuterIdentity) domeeniks pannakse  "{0}", kuid profiilis on määratud "{1}"</value>
+    <value>Välise identiteedi (OuterIdentity) domeeniks pannakse  "{0}", kuid profiilis on määratud "{1}"</value>
   </data>
   <data name="Yes" xml:space="preserve">
-    <value>✓</value>
+    <value>Jah</value>
   </data>
   <data name="NoConnection" xml:space="preserve">
     <value>eduroam vajab toimivat internetiühendust.</value>

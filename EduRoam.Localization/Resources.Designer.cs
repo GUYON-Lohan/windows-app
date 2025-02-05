@@ -71,11 +71,11 @@ namespace EduRoam.Localization {
         ///            Install this binary to %USER%/AppData/Local
         ///    /uninstall : 
         ///            Uninstall this binary from %USER%/AppData/Local along
-        ///            with any configured data
+        ///            with any configured data.
         ///    /refresh : 
         ///            Refresh the user certificate using the refresh token.
         ///            Is called automatically by a scheduled task in windows.
-        ///            This option does nothing if the [rest of string was truncated]&quot;;.
+        ///            This option does nothing if th [rest of string was truncated]&quot;;.
         /// </summary>
         public static string AppCommandsHelp {
             get {
@@ -224,6 +224,24 @@ namespace EduRoam.Localization {
         public static string CheckCertificateToastP2 {
             get {
                 return ResourceManager.GetString("CheckCertificateToastP2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to n.
+        /// </summary>
+        public static string ChoiceKeyNo {
+            get {
+                return ResourceManager.GetString("ChoiceKeyNo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to y.
+        /// </summary>
+        public static string ChoiceKeyYes {
+            get {
+                return ResourceManager.GetString("ChoiceKeyYes", resourceCulture);
             }
         }
         
@@ -443,6 +461,33 @@ namespace EduRoam.Localization {
         public static string Done {
             get {
                 return ResourceManager.GetString("Done", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ✗.
+        /// </summary>
+        public static string EmojiNo {
+            get {
+                return ResourceManager.GetString("EmojiNo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ⚠️.
+        /// </summary>
+        public static string EmojiWarning {
+            get {
+                return ResourceManager.GetString("EmojiWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ✓.
+        /// </summary>
+        public static string EmojiYes {
+            get {
+                return ResourceManager.GetString("EmojiYes", resourceCulture);
             }
         }
         
@@ -801,15 +846,6 @@ namespace EduRoam.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to y.
-        /// </summary>
-        public static string IsSure {
-            get {
-                return ResourceManager.GetString("IsSure", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Your account is valid for.
         /// </summary>
         public static string LabelAccountValidFor {
@@ -999,7 +1035,7 @@ namespace EduRoam.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to x.
+        ///   Looks up a localized string similar to No.
         /// </summary>
         public static string No {
             get {
@@ -1026,24 +1062,6 @@ namespace EduRoam.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No.
-        /// </summary>
-        public static string NoText {
-            get {
-                return ResourceManager.GetString("NoText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to n.
-        /// </summary>
-        public static string NotSure {
-            get {
-                return ResourceManager.GetString("NotSure", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to To continue you need to authenticate in your browser, a window should have opened automatically..
         /// </summary>
         public static string OAuthExplanation {
@@ -1064,9 +1082,9 @@ namespace EduRoam.Localization {
         /// <summary>
         ///   Looks up a localized string similar to OK.
         /// </summary>
-        public static string OkText {
+        public static string OK {
             get {
-                return ResourceManager.GetString("OkText", resourceCulture);
+                return ResourceManager.GetString("OK", resourceCulture);
             }
         }
         
@@ -1555,7 +1573,7 @@ namespace EduRoam.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to /!\ The realm for the OuterIdentity will be set to &quot;{0}&quot; but the profile specified &quot;{1}&quot;.
+        ///   Looks up a localized string similar to The realm for the OuterIdentity will be set to &quot;{0}&quot; but the profile specified &quot;{1}&quot;.
         /// </summary>
         public static string WarnRealmMismatch {
             get {
@@ -1564,20 +1582,11 @@ namespace EduRoam.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ✓.
+        ///   Looks up a localized string similar to Yes.
         /// </summary>
         public static string Yes {
             get {
                 return ResourceManager.GetString("Yes", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Yes.
-        /// </summary>
-        public static string YesText {
-            get {
-                return ResourceManager.GetString("YesText", resourceCulture);
             }
         }
     }

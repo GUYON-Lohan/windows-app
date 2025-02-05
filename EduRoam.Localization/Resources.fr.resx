@@ -362,7 +362,7 @@ Exception: {0}</value>
   <data name="HoursLeft" xml:space="preserve">
     <value>{0}plus d'heures</value>
   </data>
-  <data name="IsSure" xml:space="preserve">
+  <data name="ChoiceKeyYes" xml:space="preserve">
     <value>y</value>
   </data>
   <data name="LabelAccountValidFor" xml:space="preserve">
@@ -428,23 +428,17 @@ Exception: {0}</value>
   <data name="MinutesLeft" xml:space="preserve">
     <value>{0}minutes supplémentaires</value>
   </data>
-  <data name="No" xml:space="preserve">
-    <value>x</value>
-    <comment>Used for user confirmation, as the 'yes' option</comment>
-  </data>
   <data name="NoEAPConfig" xml:space="preserve">
     <value>Aucune information de configuration EAP à afficher</value>
   </data>
-  <data name="NotSure" xml:space="preserve">
+  <data name="ChoiceKeyNo" xml:space="preserve">
     <value>n</value>
-    <comment>Used for user confirmation, as the 'no' option</comment>
   </data>
   <data name="OAuthExplanation" xml:space="preserve">
     <value>Pour continuer vous devez vous authentifier dans votre navigateur, une fenêtre devrait s'ouvrir automatiquement.</value>
   </data>
   <data name="OAuthTitle" xml:space="preserve">
     <value>attente ...</value>
-    <comment>O</comment>
   </data>
   <data name="OptionDescriptionCertificatePath" xml:space="preserve">
     <value>Chemin du fichier de certificat</value>
@@ -586,10 +580,7 @@ Exception: {0}</value>
     <value>Le type de fichier que vous avez choisi n'est pas pris en charge.</value>
   </data>
   <data name="WarnRealmMismatch" xml:space="preserve">
-    <value>/!\ Le domaine de OuterIdentity sera défini sur "{0}" mais le profil spécifié "{1}"</value>
-  </data>
-  <data name="Yes" xml:space="preserve">
-    <value>✓</value>
+    <value>Le domaine de OuterIdentity sera défini sur "{0}" mais le profil spécifié "{1}"</value>
   </data>
   <data name="NoConnection" xml:space="preserve">
     <value>eduroam nécessite une connexion Internet active.</value>

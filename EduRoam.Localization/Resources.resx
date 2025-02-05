@@ -128,11 +128,12 @@
             Install this binary to %USER%/AppData/Local
     /uninstall : 
             Uninstall this binary from %USER%/AppData/Local along
-            with any configured data
+            with any configured data.
     /refresh : 
             Refresh the user certificate using the refresh token.
             Is called automatically by a scheduled task in windows.
-            This option does nothing if the user certificate has more than a third of it's validity left.
+            This option does nothing if the user certificate has
+            more than a third of it's validity left.
     /refresh-force : 
             Refresh the user certificate using the refresh token.
             Will refresh the profile even if the validity period
@@ -366,8 +367,9 @@ Exception: {0}</value>
   <data name="HoursLeft" xml:space="preserve">
     <value>{0} more hours</value>
   </data>
-  <data name="IsSure" xml:space="preserve">
+  <data name="ChoiceKeyYes" xml:space="preserve">
     <value>y</value>
+    <comment>Single button press for "yes" in terminal</comment>
   </data>
   <data name="LabelAccountValidFor" xml:space="preserve">
     <value>Your account is valid for</value>
@@ -432,23 +434,22 @@ Exception: {0}</value>
   <data name="MinutesLeft" xml:space="preserve">
     <value>{0} more minutes</value>
   </data>
-  <data name="No" xml:space="preserve">
-    <value>x</value>
-    <comment>Used for user confirmation, as the 'yes' option</comment>
+  <data name="EmojiNo" xml:space="preserve">
+    <value>✗</value>
+    <comment>Single emoji</comment>
   </data>
   <data name="NoEAPConfig" xml:space="preserve">
     <value>No EAP Config info to show</value>
   </data>
-  <data name="NotSure" xml:space="preserve">
+  <data name="ChoiceKeyNo" xml:space="preserve">
     <value>n</value>
-    <comment>Used for user confirmation, as the 'no' option</comment>
+    <comment>Single button press for "no" in terminal</comment>
   </data>
   <data name="OAuthExplanation" xml:space="preserve">
     <value>To continue you need to authenticate in your browser, a window should have opened automatically.</value>
   </data>
   <data name="OAuthTitle" xml:space="preserve">
     <value>Waiting ...</value>
-    <comment>O</comment>
   </data>
   <data name="OptionDescriptionCertificatePath" xml:space="preserve">
     <value>Certificate filepath</value>
@@ -590,18 +591,23 @@ Exception: {0}</value>
     <value>The file type you chose is not supported.</value>
   </data>
   <data name="WarnRealmMismatch" xml:space="preserve">
-    <value>/!\ The realm for the OuterIdentity will be set to "{0}" but the profile specified "{1}"</value>
+    <value>The realm for the OuterIdentity will be set to "{0}" but the profile specified "{1}"</value>
   </data>
-  <data name="YesText" xml:space="preserve">
-    <value>Yes</value>
+  <data name="EmojiWarning" xml:space="preserve">
+    <value>⚠️</value>
+    <comment>Single emoji</comment>
   </data>
   <data name="Yes" xml:space="preserve">
-    <value>✓</value>
+    <value>Yes</value>
   </data>
-  <data name="NoText" xml:space="preserve">
+  <data name="EmojiYes" xml:space="preserve">
+    <value>✓</value>
+    <comment>Single emoji</comment>
+  </data>
+  <data name="No" xml:space="preserve">
     <value>No</value>
   </data>
-  <data name="OkText" xml:space="preserve">
+  <data name="OK" xml:space="preserve">
     <value>OK</value>
   </data>
   <data name="NoConnection" xml:space="preserve">

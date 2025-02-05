@@ -364,7 +364,7 @@ Excepció: {0}</value>
   <data name="HoursLeft" xml:space="preserve">
     <value>{0} hores més</value>
   </data>
-  <data name="IsSure" xml:space="preserve">
+  <data name="ChoiceKeyYes" xml:space="preserve">
     <value>i</value>
   </data>
   <data name="LabelAccountValidFor" xml:space="preserve">
@@ -430,23 +430,17 @@ Excepció: {0}</value>
   <data name="MinutesLeft" xml:space="preserve">
     <value>{0} minuts més</value>
   </data>
-  <data name="No" xml:space="preserve">
-    <value>x</value>
-    <comment>Used for user confirmation, as the 'yes' option</comment>
-  </data>
   <data name="NoEAPConfig" xml:space="preserve">
     <value>No hi ha informació de configuració de l'EAP per mostrar.</value>
   </data>
-  <data name="NotSure" xml:space="preserve">
+  <data name="ChoiceKeyNo" xml:space="preserve">
     <value>n</value>
-    <comment>Used for user confirmation, as the 'no' option</comment>
   </data>
   <data name="OAuthExplanation" xml:space="preserve">
     <value>Per continuar, necessiteu autenticar-vos al vostre navegador, hauria d'haver-se obert una finestra automàticament.</value>
   </data>
   <data name="OAuthTitle" xml:space="preserve">
     <value>Esperant...</value>
-    <comment>O</comment>
   </data>
   <data name="OptionDescriptionCertificatePath" xml:space="preserve">
     <value>Ruta del certificat</value>
@@ -588,10 +582,7 @@ Excepció: {0}</value>
     <value>El tipus de fitxer que has triat no és compatible.</value>
   </data>
   <data name="WarnRealmMismatch" xml:space="preserve">
-    <value>/!\ El domini per a la Identitat Exterior s'establirà a "{0}" però heu especificat el perfil "{1}"</value>
-  </data>
-  <data name="Yes" xml:space="preserve">
-    <value>✓</value>
+    <value>El domini per a la Identitat Exterior s'establirà a "{0}" però heu especificat el perfil "{1}"</value>
   </data>
   <data name="NoConnection" xml:space="preserve">
     <value>eduroam requereix una connexió a internet activa.</value>

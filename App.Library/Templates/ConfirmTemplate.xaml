@@ -47,7 +47,7 @@
                         Visibility="{Binding ShowDenyButton, Converter={StaticResource BooleanToVisibilityConverter}}">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}" BasedOn="{StaticResource WhiteButtonStyle}">
-                            <Setter Property="Content" Value="{x:Static lang:Resources.NoText}" />
+                            <Setter Property="Content" Value="{x:Static lang:Resources.No}" />
                         </Style>
                     </Button.Style>
                 </Button>

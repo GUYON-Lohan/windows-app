@@ -53,7 +53,7 @@ namespace App.Library.ViewModels
             this.onDeny?.Invoke();
         }
 
-        public string ConfirmButtonText => this.ShowDenyButton ? SharedResources.YesText : SharedResources.OkText;
+        public string ConfirmButtonText => this.ShowDenyButton ? SharedResources.Yes : SharedResources.OK;
 
 
     }

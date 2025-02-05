@@ -8,16 +8,16 @@ namespace EduRoam.CLI
     {
         public static bool GetConfirmation()
         {
-            Console.Write($"{SharedResources.AreYouSure} ({SharedResources.IsSure.ToLower()}/{SharedResources.NotSure.ToUpper()})");
+            Console.Write($"{SharedResources.AreYouSure} ({SharedResources.ChoiceKeyYes.ToLower()}/{SharedResources.ChoiceKeyNo.ToUpper()})");
 
-            var choice = Console.ReadLine() ?? SharedResources.NotSure.ToUpper();
+            var choice = Console.ReadLine() ?? SharedResources.ChoiceKeyNo.ToUpper();
 
-            return (choice.Trim().ToString().Equals(SharedResources.IsSure, StringComparison.CurrentCultureIgnoreCase));
+            return (choice.Trim().ToString().Equals(SharedResources.ChoiceKeyYes, StringComparison.CurrentCultureIgnoreCase));
         }
 
         public static string GetYesNoText(bool status)
         {
-            return status ? SharedResources.Yes : SharedResources.No;
+            return status ? SharedResources.EmojiYes : SharedResources.EmojiNo;
         }
     }
 }
