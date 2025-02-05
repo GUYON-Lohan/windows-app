@@ -1,12 +1,9 @@
 ﻿using App.Library;
 using App.Library.Utility;
 
-using DocumentFormat.OpenXml.Wordprocessing;
-
 using Microsoft.Extensions.DependencyInjection;
 
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 
 using LanguageResources = EduRoam.Localization.Resources;

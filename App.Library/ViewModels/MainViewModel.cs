@@ -22,7 +22,6 @@ using System.Threading.Tasks;
 using System.Windows;
 
 using NETWORKLIST;
-using App.Library.Properties;
 using Semver;
 
 namespace App.Library.ViewModels
@@ -338,7 +337,7 @@ namespace App.Library.ViewModels
 
                     this.ActiveContent = viewModel;
                     this.IsLoading = false;
-                    this.CallViewPropertyChanges();  
+                    this.CallViewPropertyChanges();
                 });
         }
 
