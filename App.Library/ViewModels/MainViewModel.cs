@@ -71,6 +71,10 @@ namespace App.Library.ViewModels
                         Thread.Sleep(1000);
                     }
 
+                    #region Updater
+                    await UpdateChecker.CheckIfUpdateAvailableAsync();
+                    #endregion
+
                     await this.idpDownloader.LoadProviders();
 
                     this.IsLoading = false;
@@ -206,7 +210,10 @@ namespace App.Library.ViewModels
 
             void OnConfirmUpdate()
             {
-                UpdateChecker.DownloadUpdate();
+                Task.Run(async () =>
+                {
+                    await UpdateChecker.DownloadUpdateAsync();
+                });
             }
 
             void OnDenyUpdate()
@@ -331,7 +338,7 @@ namespace App.Library.ViewModels
 
                     this.ActiveContent = viewModel;
                     this.IsLoading = false;
-                    this.CallViewPropertyChanges();
+                    this.CallViewPropertyChanges();  
                 });
         }
 

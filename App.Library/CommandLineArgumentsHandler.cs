@@ -32,11 +32,13 @@ namespace App.Library
             switch (args[0].ToLowerInvariant())
             {
                 case "/install":
-                    {
-                        InstallTask.Install();
+                {
+                    InstallTask.Install();
 
-                        return true; // terminate after
-                    }
+                    bool.TryParse(args[1], out var forceStart);
+    
+                    return !forceStart;
+                }
 
                 case "/uninstall":
                     {

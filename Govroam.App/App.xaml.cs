@@ -31,8 +31,6 @@ namespace Govroam.App
                 this.Shutdown(1);
             }
 
-            UpdateChecker.CheckIfUpdateAvailable();
-
             #region SelfInstaller AutoInstall
             var resultObject = AutoInstaller.CheckIfInstalled();
             if (!resultObject)

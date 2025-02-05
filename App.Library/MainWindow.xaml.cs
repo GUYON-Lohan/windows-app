@@ -5,7 +5,9 @@ using EduRoam.Connect.Tasks;
 
 using Microsoft.Extensions.Logging;
 
+using System;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 using System.Windows;
 
 namespace App.Library
@@ -21,22 +23,21 @@ namespace App.Library
 
         private readonly ILogger<MainWindow> logger;
 
+        // P/Invoke declarations
+        private const int GWL_STYLE = -16;
+        private const int WS_MAXIMIZEBOX = 0x00010000;
+
+        [DllImport("user32.dll", SetLastError = true)]
+        private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
+
+        [DllImport("user32.dll", SetLastError = true)]
+        private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
+
         public MainWindow(ILogger<MainWindow> logger, MainViewModel mainViewModel) : base()
         {
             this.logger = logger;
 
             this.InitializeComponent();
-
-            //            this.ShowInTaskbar = true;
-
-            //#pragma warning disable CA1416 // Validate platform compatibility
-            //            this.notifyIcon = new()
-            //            {
-            //                Icon = new Icon(@"geteduroam.ico"),
-            //                Visible = true,
-            //                Text = "geteduroam"
-            //            };
-            //#pragma warning restore CA1416 // Validate platform compatibility
 
             this.MainViewModel = mainViewModel;
             this.MainViewModel.CloseApp = this.Close;
@@ -44,6 +45,14 @@ namespace App.Library
             this.DataContext = this.MainViewModel;
 
             this.Dispatcher.UnhandledException += this.Dispatcher_UnhandledException;
+
+            // Disable the maximize button
+            this.SourceInitialized += (s, e) =>
+            {
+                var hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
+                var currentStyle = GetWindowLong(hwnd, GWL_STYLE);
+                SetWindowLong(hwnd, GWL_STYLE, currentStyle & ~WS_MAXIMIZEBOX);
+            };
         }
 
         private void Dispatcher_UnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
@@ -55,7 +64,5 @@ namespace App.Library
         {
             this.MainViewModel.Dispose();
         }
-
-
     }
 }

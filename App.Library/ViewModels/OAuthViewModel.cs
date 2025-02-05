@@ -3,6 +3,7 @@ using EduRoam.Connect.Tasks;
 
 using System;
 using System.Threading.Tasks;
+using System.Windows;
 
 using SharedResources = EduRoam.Localization.Resources;
 
@@ -23,6 +24,14 @@ namespace App.Library.ViewModels
                     var eapConfiguration = new EapConfigTask(new System.Threading.ManualResetEvent(false), new System.Threading.ManualResetEvent(false));
 
                     var eapConfig = await eapConfiguration.GetEapConfigAsync(this.profile.Id);
+
+                    // Forces the window to be focussed again after returning from OAuth flow
+                    Application.Current.Dispatcher.Invoke(() =>
+                    {
+                        Application.Current.MainWindow.Activate();
+                        Application.Current.MainWindow.Focus();
+                    });
+
                     if (eapConfig != null)
                     {
                         this.Owner.SetActiveContent(new CertificateViewModel(this.Owner, eapConfig));

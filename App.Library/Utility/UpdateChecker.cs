@@ -28,14 +28,14 @@ public static class UpdateChecker
     public static string NewVersion { get; set; }
 
     // http objects
-    public static bool CheckIfUpdateAvailable()
+    public async static Task<bool> CheckIfUpdateAvailableAsync()
     {
         if(!IsUpdateAllowedByPolicy(Registry.CurrentUser) || !IsUpdateAllowedByPolicy(Registry.LocalMachine))
         {
             return false;
         }
 
-        DownloadUpdateJson();
+        await DownloadUpdateJsonAsync();
         NewVersion = UpdateData.CurrentVersion;
         var parsedVersion = Version.Parse(UpdateData.CurrentVersion);
         var newVersion = new SemVersion(parsedVersion.Major, parsedVersion.Minor, parsedVersion.Build);
@@ -59,29 +59,24 @@ public static class UpdateChecker
     /// Downloads the correct executable from the location specified in the updateUrl response
     /// </summary>
     /// <returns></returns>
-    public static bool DownloadUpdate()
+    public static async Task<bool> DownloadUpdateAsync()
     {
         try
         {
             var tempPath = Path.Combine(Path.GetTempPath(), $"{Guid.NewGuid().ToString()}_{Settings.Settings.ApplicationIdentifier}.exe");
 
 
-            using (WebClient client = new WebClient())
+            using (var client = new WebClient())
             {
-                client.DownloadFile(UpdateData.DownloadUrl, tempPath);
+                await client.DownloadFileTaskAsync(UpdateData.DownloadUrl, tempPath);
 
                 var process = new ProcessStartInfo
                 {
                     FileName = tempPath,
-                    Arguments = "/install"
+                    Arguments = "/install true"
                 };
 
                 Process.Start(process);
-
-                Thread.Sleep(5000);
-
-                Process.Start(SelfInstaller.DefaultInstance.InstallExePath);
-
                 Environment.Exit(0);
             }
 
@@ -94,22 +89,23 @@ public static class UpdateChecker
     }
 
     #region Private helper functions
-    private static string GetUpdateUrl()
+    private static Uri GetUpdateUrl()
     {
         var arch = ArchitectureHelper.GetArchitecture();
         var updateUrl = string.Format(UpdateUrlBase, Settings.Settings.UpdateBaseUrl, arch);
 
-        return updateUrl;
+        return new Uri(updateUrl);
     }
 
-    private static void DownloadUpdateJson()
+    private static async Task DownloadUpdateJsonAsync()
     {
         var url = GetUpdateUrl();
 
         try
         {
             var webClient = new WebClient();
-            var response = webClient.DownloadString(url);
+            var response = await webClient.DownloadStringTaskAsync(url);
+
             var deserializedObject = JsonConvert.DeserializeObject<UpdateResponseDto>(response);
             UpdateData = deserializedObject.UpdateRoot;
         } catch(Exception e)

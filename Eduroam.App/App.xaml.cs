@@ -6,6 +6,7 @@ using DocumentFormat.OpenXml.Wordprocessing;
 using Microsoft.Extensions.DependencyInjection;
 
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 
 using LanguageResources = EduRoam.Localization.Resources;
@@ -28,8 +29,6 @@ namespace Eduroam.App
             {
                 this.Shutdown(1);
             }
-
-            UpdateChecker.CheckIfUpdateAvailable();
 
             #region SelfInstaller AutoInstall
             var resultObject = AutoInstaller.CheckIfInstalled();
