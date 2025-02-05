@@ -96,7 +96,7 @@ public static class UpdateChecker
     #region Private helper functions
     private static string GetUpdateUrl()
     {
-        var arch = ArchitectureHelper.GetArchitecture();
+        var arch = ArchitectureHelper.GetNativeMachineType().ToString().ToLower();
         var updateUrl = string.Format(UpdateUrlBase, Settings.Settings.UpdateBaseUrl, arch);
 
         return updateUrl;
