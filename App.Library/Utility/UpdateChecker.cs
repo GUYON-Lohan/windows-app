@@ -73,7 +73,7 @@ public static class UpdateChecker
                 var batchFilePath = Path.Combine(Path.GetTempPath(), "update.bat");
                 var batchFileContent = $@"
 @echo off
-timeout /t 5 /nobreak
+timeout /t 2 /nobreak
 start """" ""{tempPath}"" /install true
 del ""%~f0""
 ";
