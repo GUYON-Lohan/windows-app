@@ -70,24 +70,23 @@ public static class UpdateChecker
             {
                 await client.DownloadFileTaskAsync(UpdateData.DownloadUrl, tempPath);
 
-                var scriptContent = $@"
-Start-Sleep -Seconds 2
-Start-Process -FilePath ""{tempPath}"" -ArgumentList '/install true'
+                var batchFilePath = Path.Combine(Path.GetTempPath(), "update.bat");
+                var batchFileContent = $@"
+@echo off
+timeout /t 5 /nobreak
+start """" ""{tempPath}"" /install true
+del ""%~f0""
 ";
+                File.WriteAllText(batchFilePath, batchFileContent);
 
-                var scriptPath = Path.Combine(Path.GetTempPath(), "update.ps1");
-                File.WriteAllText(scriptPath, scriptContent);
-
-                var startInfo = new ProcessStartInfo
+                Process.Start(new ProcessStartInfo
                 {
-                    FileName = "powershell.exe",
-                    Arguments = $"-NoProfile -WindowStyle Hidden -File \"{scriptPath}\"",
+                    FileName = batchFilePath,
                     UseShellExecute = true,
                     CreateNoWindow = true,
                     WindowStyle = ProcessWindowStyle.Hidden
-                };
+                });
 
-                Process.Start(startInfo);
                 Environment.Exit(0);
             }
 
