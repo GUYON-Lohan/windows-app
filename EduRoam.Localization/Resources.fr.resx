@@ -129,11 +129,6 @@
 /uninstall :
      Désinstallez ce binaire de %USER%/AppData/Local avec
 avec toutes les données configurées
-/background :
-    Démarrez cette application cachée dans la barre d'état
-(fonctionne uniquement s'il est exécuté à partir du répertoire d'installation)
-/close :
-     Fermer l'instance en cours d'exécution
 /refresh :
      Actualisez le certificat utilisateur à l'aide du jeton d'actualisation.
      Est appelé automatiquement par une tâche planifiée dans Windows.

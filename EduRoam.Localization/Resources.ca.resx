@@ -129,11 +129,6 @@
     /uninstall : 
             Elimina aquest binari de %USER%/AppData/Local juntament
             amb tota la configuració
-    /background : 
-            Iniciar la aplicació oculta
-            (només funciona si s'arrenca al directori d'instal·lació)
-    /close : 
-            Tanca la instancia activa
     /refresh : 
             Actualiza el certificat d'usuari amb un token d'actualització.
             S'activa automàticament per una tasca programada.

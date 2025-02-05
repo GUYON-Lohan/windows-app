@@ -129,11 +129,6 @@
     /uninstall : 
             Disinstalla questo file binario da %USER%/AppData/Local insieme
             a qualsiasi dato di configurazione
-    /background : 
-            Avvia questa applicazione nascosta nel tray
-            (funziona solo se eseguito dalla cartella di installazione)
-    /close : 
-            Chiudi l'istanza attualmente in esecuzione
     /refresh : 
             Aggiorna il certificato utente utilizzando il token di aggiornamento.
             Viene chiamato automaticamente da un'attività pianificata in Windows.

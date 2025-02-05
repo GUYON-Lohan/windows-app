@@ -129,11 +129,6 @@
     /uninstall : 
             Eemalda programm sihtkohast %USER%/AppData/Local along
             koos seadistusandmetega
-    /background : 
-            Käivita rakendus taustal
-            (toimib ainult paigalduskataloogist käivitatuna)
-    /close : 
-            Sule parajasti töötav paigaldis
     /refresh : 
             Uuenduskoodi kasutades uuenda kasutajasertifikaat
             Käivitatakse automaatselt Windowsis ajastatud toiminguga.

@@ -72,12 +72,10 @@ namespace EduRoam.Localization {
         ///    /uninstall : 
         ///            Uninstall this binary from %USER%/AppData/Local along
         ///            with any configured data
-        ///    /background : 
-        ///            Start this application hidden to the tray
-        ///            (works only if run from install directory)
-        ///    /close : 
-        ///            Close the current running instance
-        ///   [rest of string was truncated]&quot;;.
+        ///    /refresh : 
+        ///            Refresh the user certificate using the refresh token.
+        ///            Is called automatically by a scheduled task in windows.
+        ///            This option does nothing if the [rest of string was truncated]&quot;;.
         /// </summary>
         public static string AppCommandsHelp {
             get {
@@ -1064,7 +1062,7 @@ namespace EduRoam.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Oke.
+        ///   Looks up a localized string similar to OK.
         /// </summary>
         public static string OkText {
             get {

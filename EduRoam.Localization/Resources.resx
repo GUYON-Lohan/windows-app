@@ -129,14 +129,10 @@
     /uninstall : 
             Uninstall this binary from %USER%/AppData/Local along
             with any configured data
-    /background : 
-            Start this application hidden to the tray
-            (works only if run from install directory)
-    /close : 
-            Close the current running instance
     /refresh : 
             Refresh the user certificate using the refresh token.
             Is called automatically by a scheduled task in windows.
+            This option does nothing if the user certificate has more than a third of it's validity left.
     /refresh-force : 
             Refresh the user certificate using the refresh token.
             Will refresh the profile even if the validity period
@@ -606,7 +602,7 @@ Exception: {0}</value>
     <value>No</value>
   </data>
   <data name="OkText" xml:space="preserve">
-    <value>Oke</value>
+    <value>OK</value>
   </data>
   <data name="NoConnection" xml:space="preserve">
     <value>eduroam requires an active internet connection.</value>

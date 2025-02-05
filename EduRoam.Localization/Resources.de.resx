@@ -128,11 +128,6 @@
      Installiert das Programm in %USER%/AppData/Local
 /uninstall : 
      Löscht diese Programm aus %USER%/AppData/Local mit allen zugehörigen Daten
-/background : 
-     Started das Programm in der Fensterleiste
-     (funktioniert nur, wenn das Programm aus dem Installationspfad ausgeführt wird)
-/close : 
-     Schließt die laufende Instanz des Programms
 /refresh : 
      Erneuert das Nutzerzertifikat mit dem Erneuerungstoken.
      Wird automatisch durch einen Systemdienst aufgerufen.

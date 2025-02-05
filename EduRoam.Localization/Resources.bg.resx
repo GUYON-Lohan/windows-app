@@ -129,11 +129,6 @@ Install this binary to %USER%/AppData/Local
 /uninstall : 
 Uninstall this binary from %USER%/AppData/Local along
 with any configured data
-/background : 
-Start this application hidden to the tray
-(works only if run from install directory)
-/close : 
-Close the current running instance
 /refresh : 
 Refresh the user certificate using the refresh token.
 Is called automatically by a scheduled task in windows.

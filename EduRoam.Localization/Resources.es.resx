@@ -129,11 +129,6 @@
     /uninstall : 
             Desinstalar este binario de %USER%/AppData/Local junto
             con cualquier dato configurado
-    /background : 
-            Iniciar esta aplicación oculta en la bandeja
-            (solo funciona si se ejecuta desde el directorio de instalación)
-    /close : 
-            Cerrar la instancia actual en ejecución
     /refresh : 
             Actualizar el certificado de usuario utilizando el token de actualización.
             Se llama automáticamente mediante una tarea programada en Windows.
