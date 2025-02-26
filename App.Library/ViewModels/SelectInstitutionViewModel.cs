@@ -5,8 +5,9 @@ using EduRoam.Connect.Exceptions;
 using EduRoam.Connect.Identity;
 using EduRoam.Connect.Tasks;
 
+using Microsoft.Extensions.Logging;
+
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
@@ -50,6 +51,16 @@ namespace App.Library.ViewModels
         public async Task<ObservableCollection<IdentityProvider>> GetInstitutionsAsync()
         {
             var institutes = await InstitutesTask.GetAsync(this.searchText);
+            if ((this.searchText.ToLower().StartsWith("http://") || this.searchText.ToLower().StartsWith("https://")) && Uri.IsWellFormedUriString(this.searchText.Trim(), UriKind.Absolute))
+            {
+                institutes = institutes.Prepend(new IdentityProvider
+                {
+                    Id = "custom_http_provider",
+                    Name = string.Format(SharedResources.ConnectTo0, this.searchText),
+                    DownloadMetadataOnSelect = true
+                });
+            }
+
             return new ObservableCollection<IdentityProvider>(institutes);
         }
 
@@ -60,6 +71,19 @@ namespace App.Library.ViewModels
 
         protected override async Task NavigateNextAsync()
         {
+            if(this.Owner.State.SelectedIdentityProvider.DownloadMetadataOnSelect)
+            {
+                try
+                {
+                    this.Owner.State.SelectedIdentityProvider = await InstitutesTask.GetProfileFromUrlAsync(this.searchText);
+                } catch (EduroamAppUserException ex)
+                {
+                    this.Owner.SetActiveContent(new ConfirmViewModel(this.Owner, string.Format("{0}{1}", ex.UserFacingMessage, !string.IsNullOrEmpty(ex.Message) ? $": {ex.Message}" : ""), () => { this.Owner.SetActiveContent(this); }));
+                    this.Owner.Logger.LogError(string.Format("{0}{1}", ex.UserFacingMessage, !string.IsNullOrEmpty(ex.Message) ? $": {ex.Message}" : ""));
+                    return;
+                }
+            }
+
             var availableProfiles = this.Owner.State.SelectedIdentityProvider?.Profiles.Count ?? 0;
 
             if (availableProfiles == 0)
@@ -72,7 +96,7 @@ namespace App.Library.ViewModels
 
                 if (!string.IsNullOrEmpty(autoProfile.Id))
                 {
-                    await this.Owner.HandleProfileSelect(autoProfile.Id);
+                    await this.Owner.HandleProfileSelect(autoProfile.Id, autoProfile);
                 }
             }
             else

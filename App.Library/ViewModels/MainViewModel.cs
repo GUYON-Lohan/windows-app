@@ -219,17 +219,14 @@ namespace App.Library.ViewModels
 
             if (SemVersion.ComparePrecedence(SelfInstaller.DefaultInstance.GetRunningVersion(), UpdateChecker.MinimalSupportedVersion) == -1)
             {
-                this.SetActiveContent(new ConfirmViewModel(this, string.Format(EduRoam.Localization.Resources.VersionNoLongerSupported, Settings.Settings.ApplicationName, SelfInstaller.DefaultInstance.GetRunningVersion(), UpdateChecker.MinimalSupportedVersion, UpdateChecker.NewVersion), confirmOnly: false, OnConfirmUpdate, OnDenyUnsupported));
+                this.SetActiveContent(new ConfirmViewModel(this, string.Format(EduRoam.Localization.Resources.VersionNoLongerSupported, Settings.Settings.ApplicationName, SelfInstaller.DefaultInstance.GetRunningVersion(), UpdateChecker.MinimalSupportedVersion, UpdateChecker.NewVersion), OnConfirmUpdate, OnDenyUnsupported));
 
                 return;
             }
 
             if (UpdateChecker.IsUpdateAvailable)
             {
-                this.SetActiveContent(new ConfirmViewModel(this, string.Format(EduRoam.Localization.Resources.UpdateAvailableMessage, Settings.Settings.ApplicationName, SelfInstaller.DefaultInstance.GetRunningVersion(), UpdateChecker.NewVersion), confirmOnly: false, OnConfirmUpdate, OnDenyUpdate));
-
-
-
+                this.SetActiveContent(new ConfirmViewModel(this, string.Format(EduRoam.Localization.Resources.UpdateAvailableMessage, Settings.Settings.ApplicationName, SelfInstaller.DefaultInstance.GetRunningVersion(), UpdateChecker.NewVersion), OnConfirmUpdate, OnDenyUpdate));
                 return;
             }
             #endregion
@@ -357,24 +354,27 @@ namespace App.Library.ViewModels
         /// <exception cref="XmlException">Parsing eap-config failed</exception>
         public async Task HandleProfileSelect(
             string profileId,
+            IdentityProviderProfile? profile = null,
             string? eapConfigXml = null,
             bool skipOverview = false)
         {
-            IdentityProviderProfile? profile;
             EapConfig? eapConfig;
 
             this.IsLoading = true;
 
             try
             {
-                profile = await this.idpDownloader.GetProfileFromId(profileId);
-                
                 if (profile == null)
                 {
-                    this.Logger.LogError($"Unknown Profile, profile with id {profileId} could not be found.");
-                    MessageBox.Show(EduRoam.Localization.Resources.ErrorUnknownProfile, caption: $"{Settings.Settings.ApplicationName} - Exception");
-                    return;
-                }
+                    profile = await this.idpDownloader.GetProfileFromId(profileId);
+
+                    if (profile == null)
+                    {
+                        this.Logger.LogError($"Unknown Profile, profile with id {profileId} could not be found.");
+                        MessageBox.Show(EduRoam.Localization.Resources.ErrorUnknownProfile, caption: $"{Settings.Settings.ApplicationName} - Exception");
+                        return;
+                    }
+                }             
 
                 this.State.SelectedProfile = profile;
             }
