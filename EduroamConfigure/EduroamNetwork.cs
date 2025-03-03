@@ -291,7 +291,7 @@ namespace EduroamConfigure
 
 			if (0 != PersistingStore.ConfiguredWLANProfiles.Count)
 			{
-				throw new Exception("Some WLAN profile could not be removed");
+				Debug.WriteLine("Some WLAN profile could not be removed");
 			}
 		}
 
