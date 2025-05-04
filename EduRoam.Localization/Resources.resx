@@ -174,13 +174,13 @@ Combine with /force to refresh regardless of validity.</value>
     <value>In order to continue you have to install the listed certificates</value>
   </data>
   <data name="CommandDescriptionConnect" xml:space="preserve">
-    <value>Configure Wi-Fi based on a institution profile and connect.</value>
+    <value>Configure Wi-Fi based on a organisation profile and connect.</value>
   </data>
   <data name="CommandDescriptionInstall" xml:space="preserve">
     <value>Install this binary to %USER%/AppData/Local</value>
   </data>
   <data name="CommandDescriptionList" xml:space="preserve">
-    <value>Get a list of institutions or profiles for a institution.</value>
+    <value>Get a list of organisations or profiles for an organisation.</value>
   </data>
   <data name="CommandDescriptionReauthenticate" xml:space="preserve">
     <value>Reauthenticate</value>
@@ -222,7 +222,7 @@ Unable to connect to {0}.</value>
     <value>Terms of Use</value>
   </data>
   <data name="ConsentPost" xml:space="preserve">
-    <value>of the institution</value>
+    <value>of the organisation</value>
   </data>
   <data name="ConsentPre" xml:space="preserve">
     <value>By clicking 'Next' you agree to the</value>
@@ -353,8 +353,8 @@ Exception: {0}.</value>
     <value>Connection of type {0} is not supported (yet).</value>
   </data>
   <data name="ErrorUnsupportedInstituteOrProfile" xml:space="preserve">
-    <value>The institution or profile is either not supported or malformed.
-Please select a different institution or profile.
+    <value>The organisation or profile is either not supported or malformed.
+Please select a different organisation or profile.
 
 Exception: {0}</value>
   </data>
@@ -497,7 +497,7 @@ Exception: {0}</value>
     <value>Profile name</value>
   </data>
   <data name="ProfileNotAffiliatedInstitution" xml:space="preserve">
-    <value>Not affiliated with institution?</value>
+    <value>Not affiliated with organisation?</value>
   </data>
   <data name="ProfilePhone" xml:space="preserve">
     <value>Phone</value>
@@ -534,7 +534,7 @@ Exception: {0}</value>
     <value>Browse</value>
   </data>
   <data name="SelectInstitution" xml:space="preserve">
-    <value>Select institution</value>
+    <value>Select organisation</value>
   </data>
   <data name="SelectProfile" xml:space="preserve">
     <value>Select profile</value>
