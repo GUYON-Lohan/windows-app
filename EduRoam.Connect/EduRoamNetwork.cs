@@ -275,13 +275,18 @@ namespace EduRoam.Connect
             Debug.WriteLine("Removing installed profiles on " + this.InterfaceId);
             foreach (var configuredProfile in this.store.ConfiguredWLANProfiles.ToList())
             {
-                if (configuredProfile.InterfaceId == this.InterfaceId)
+                if (configuredProfile.InterfaceId != this.InterfaceId)
                 {
-                    // We explicitly ignore errors from NativeWifi,
-                    // as any failures probably mean that our info and the info in the OS is out of sync
-                    NativeWifi.DeleteProfile(this.InterfaceId, configuredProfile.ProfileName); // May return false
-                    this.store.RemoveConfiguredWLANProfile(configuredProfile);
+                    Debug.WriteLine("WARNING: Maybe not possible to remove profile due to interface missing: " + configuredProfile.ProfileName);
                 }
+
+                // We explicitly ignore errors from NativeWifi,
+                // as any failures probably mean that our info and the info in the OS is out of sync
+                Debug.WriteLineIf(
+                    NativeWifi.DeleteProfile(this.InterfaceId, configuredProfile.ProfileName), // May return false
+                    "ERROR: The profile was not removed, ignoring: " + configuredProfile.ProfileName
+                    );
+                this.store.RemoveConfiguredWLANProfile(configuredProfile);
             }
 
             if (this.store.ConfiguredWLANProfiles.Any())
