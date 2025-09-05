@@ -118,577 +118,578 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AppCommandLineHelpFlagsTitle" xml:space="preserve">
-    <value>Comandi CLI supportati:</value>
+    <value>Flag-uri de linie de comandă suportate:</value>
   </data>
   <data name="AppCommandLineHelpFlagsHelp" xml:space="preserve">
-    <value>Mostra questo testo di aiuto.</value>
+    <value>Afișează acest text de ajutor.</value>
   </data>
   <data name="AppCommandLineHelpFlagsInstall" xml:space="preserve">
-    <value>Installa questo file binario in %USER%/AppData/Local.</value>
+    <value>Instalați acest program în %UTILIZATOR%/AppData/Local.</value>
   </data>
   <data name="AppCommandLineHelpFlagsUninstall" xml:space="preserve">
-    <value>Disinstalla questo file binario da %USER%/AppData/Local insieme
-a qualsiasi dato di configurazione.</value>
+    <value>Dezinstalați acest program din %UTILIZATOR%/AppData/Local,
+împreună cu orice date configurate.</value>
   </data>
   <data name="AppCommandLineHelpFlagsRefresh" xml:space="preserve">
-    <value>Aggiorna il certificato utente utilizzando il token di aggiornamento.
-Viene chiamato automaticamente da un'attività pianificata in Windows.
-/force :
-Aggiorna il certificato utente utilizzando il token di aggiornamento.
-Aggiornerà il profilo anche se il periodo di validità
-rimanente del certificato client corrente è più di 1/3 del totale.</value>
+    <value>Actualizați certificatul de utilizator folosind jetonul de actualizare.
+Destinat să fie apelat automat de o sarcină programată în Windows.
+Această opțiune nu face nimic dacă certificatul de utilizator
+are mai mult de o treime din valabilitate.
+Se combină cu /force pentru a actualiza indiferent de valabilitate.</value>
   </data>
   <data name="AreYouSure" xml:space="preserve">
-    <value>Sei sicuro di voler continuare?</value>
+    <value>Sunteți sigur că doriți să continuați?</value>
   </data>
   <data name="ButtonClose" xml:space="preserve">
-    <value>Chiudi</value>
+    <value>Închide</value>
   </data>
   <data name="ButtonConnect" xml:space="preserve">
-    <value>Connetti</value>
+    <value>Conectare</value>
   </data>
   <data name="ButtonInstall" xml:space="preserve">
-    <value>Installa</value>
+    <value>Instalare</value>
   </data>
   <data name="ButtonNext" xml:space="preserve">
-    <value>Prossimo</value>
+    <value>Înainte</value>
   </data>
   <data name="ButtonPrevious" xml:space="preserve">
-    <value>Precedente</value>
+    <value>Anterior</value>
   </data>
   <data name="ButtonBack" xml:space="preserve">
-    <value>Indietro</value>
+    <value>Înapoi</value>
   </data>
   <data name="CertificateLabel" xml:space="preserve">
-    <value>Certificato:</value>
+    <value>Certificat:</value>
   </data>
   <data name="CertificatesInstallationNotification" xml:space="preserve">
-    <value>Per continuare è necessario installare i seguenti certificati.</value>
+    <value>Pentru a continua, următoarele certificate trebuie instalate.</value>
   </data>
   <data name="CertificatesInstallationStatus" xml:space="preserve">
-    <value>{0}, installato: {1}</value>
+    <value>{0}, instalat: {1}</value>
   </data>
   <data name="CertificateTitleInstalled" xml:space="preserve">
-    <value>i certificati sono installati</value>
+    <value>certificatele sunt instalate</value>
   </data>
   <data name="CertificateTitleStart" xml:space="preserve">
-    <value>Per continuare è necessario installare i certificati elencati</value>
+    <value>Pentru a continua, trebuie să instalați următoarele certificate</value>
   </data>
   <data name="CommandDescriptionConnect" xml:space="preserve">
-    <value>Configura il Wi-Fi in base al profilo di un'organizzazione e connettiti.</value>
+    <value>Configurați Wi-Fi pe baza unui profil al organizației și conectați-vă.</value>
   </data>
   <data name="CommandDescriptionInstall" xml:space="preserve">
-    <value>Installa questo file binario in %USER%/AppData/Local</value>
+    <value>Instalați acest fișier binar în %UTILIZATOR%/AppData/Local</value>
   </data>
   <data name="CommandDescriptionList" xml:space="preserve">
-    <value>Ottieni un elenco di organizzazioni o i profili di un'organizzazione.</value>
+    <value>Obțineți o listă de organizații sau profiluri pentru o organizație.</value>
   </data>
   <data name="CommandDescriptionReauthenticate" xml:space="preserve">
-    <value>Ri-autentica</value>
+    <value>Reautentificare</value>
   </data>
   <data name="CommandDescriptionRefresh" xml:space="preserve">
-    <value>Aggiorna le credenziali</value>
+    <value>Actualizați credențialele</value>
   </data>
   <data name="CommandDescriptionRemove" xml:space="preserve">
-    <value>Rimuovere il profilo Wi-Fi configurato e/o i certificati root</value>
+    <value>Îndepărtați profilul Wi-Fi configurat și/sau certificatele de administrator</value>
   </data>
   <data name="CommandDescriptionShow" xml:space="preserve">
-    <value>Mostra le informazioni di configurazione EAP</value>
+    <value>Afișați informațiile de configurare EAP</value>
   </data>
   <data name="CommandDescriptionStatus" xml:space="preserve">
-    <value>Mostra lo stato</value>
+    <value>Afișați starea</value>
   </data>
   <data name="CommandDescriptionUninstall" xml:space="preserve">
-    <value>Disinstalla l'applicazione</value>
+    <value>Dezinstalați aplicația </value>
   </data>
   <data name="ConfiguredButNotConnected" xml:space="preserve">
-    <value>Tutto è configurato!
-Impossibile connettersi perché non è stata trovata alcuna configurazione EAP</value>
+    <value>Totul este configurat! 
+Nu a fost posibilă conectarea deoarece nu a putut fi găsită nicio configurație EAP</value>
   </data>
   <data name="ConfiguredButProbablyOutOfCoverage" xml:space="preserve">
-    <value>Tutto è configurato!
-Impossibile connettersi a {0}, probabilmente sei fuori copertura.</value>
+    <value>Totul este configurat! 
+Nu se poate conecta la {0}, sunteți probabil în afara ariei de acoperire.</value>
   </data>
   <data name="ConfiguredButUnableToConnect" xml:space="preserve">
-    <value>Tutto è configurato!
-Impossibile connettersi a {0}.</value>
+    <value>Totul este configurat! 
+Nu se poate conecta la {0}.</value>
   </data>
   <data name="ConfiguredEap" xml:space="preserve">
-    <value>EAP è configurato</value>
+    <value>EAP este configurat</value>
   </data>
   <data name="ConnectionUsernameAndPasswordRequired" xml:space="preserve">
-    <value>Si prega di fornire un nome utente e una password per connettersi.</value>
+    <value>Vă rugăm să furnizați un nume de utilizator și o parolă pentru conectare.</value>
   </data>
   <data name="ConsentMain" xml:space="preserve">
-    <value>Termini di utilizzo</value>
+    <value>Termeni de utilizare</value>
   </data>
   <data name="ConsentPost" xml:space="preserve">
-    <value>dell'organizzazione</value>
+    <value>a organizației</value>
   </data>
   <data name="ConsentPre" xml:space="preserve">
-    <value>Facendo clic su 'Avanti' accetti i</value>
+    <value>Prin apăsarea butonului 'Înainte', sunteți de acord cu</value>
   </data>
   <data name="CredentialsLabel" xml:space="preserve">
-    <value>Inserisci il tuo nome utente e la tua password</value>
+    <value>Introduceți numele de utilizator și parola dumneavoastră</value>
   </data>
   <data name="CredentialsPasswordLabel" xml:space="preserve">
-    <value>Password:</value>
+    <value>Parola: </value>
   </data>
   <data name="CredentialsUsernameLabel" xml:space="preserve">
-    <value>Username:</value>
+    <value>Numele de utilizator:</value>
   </data>
   <data name="DaysLeft" xml:space="preserve">
-    <value>{0} giorni ulteriori</value>
+    <value>încă {0} zile</value>
   </data>
   <data name="Done" xml:space="preserve">
-    <value>Fatto</value>
+    <value>Finalizat</value>
   </data>
   <data name="ErrorApi" xml:space="preserve">
-    <value>errore API</value>
+    <value>Eroare API</value>
   </data>
   <data name="ErrorCannotConnectWithServer" xml:space="preserve">
-    <value>Impossibile connettersi al server.
+    <value>Nu s-a putut conecta la server. 
 
-Assicurati di essere connesso a Internet, quindi riprova.
+Asigurați-vă că sunteți conectat la internet, apoi încercați din nou. 
 
-Eccezione: {0}</value>
+Excepție: {0}</value>
   </data>
   <data name="ErrorCannotFetchTokens" xml:space="preserve">
-    <value>Impossibile recuperare il token JSON.
-Eccezione: {0}</value>
+    <value>Nu s-a putut extrage jetonul json. 
+Excepție: {0}</value>
   </data>
   <data name="ErrorCannotRemoveWLANProfile" xml:space="preserve">
-    <value>Impossibile rimuovere alcuni profili WLAN</value>
+    <value>Unele profiluri WLAN nu au putut fi înlăturate</value>
   </data>
   <data name="ErrorCannotRetrieveProfileWhenOffline" xml:space="preserve">
-    <value>Impossibile recuperare il profilo quando si è offline</value>
+    <value>Nu se poate prelua profilul atunci când sunteți offline</value>
   </data>
   <data name="ErrorClientCredentialNotValidYes" xml:space="preserve">
-    <value>La credenziale del client non è ancora valida. Diventeranno valide il {0}.</value>
+    <value>Credențialele clientului nu sunt încă valide. Acestea vor deveni valide la data de {0}. </value>
   </data>
   <data name="ErrorConfiguredButNotConnected" xml:space="preserve">
-    <value>Tutto è configurato!
-Impossibile connettersi perché non è stato possibile trovare EAP Config</value>
+    <value>Totul este configurat! 
+Nu a fost posibilă conectarea deoarece nu a putut fi găsită nicio configurație EAP</value>
   </data>
   <data name="ErrorConfiguredButProbablyOutOfCoverage" xml:space="preserve">
-    <value>Tutto è configurato!
-Impossibile connettersi a {0}, probabilmente sei fuori copertura.</value>
+    <value>Totul este configurat corect! 
+
+Cu toate acestea, momentan nu se poate conecta la {0}, rețeaua este în afara ariei de acoperire. Odată intrat în arie, sistemul dumneavoastră se va conecta la {0}.</value>
   </data>
   <data name="ErrorConfiguredButUnableToConnect" xml:space="preserve">
-    <value>Tutto è configurato!
-Impossibile connettersi a {0}.</value>
+    <value>Totul este configurat corect! 
+
+Cu toate acestea, momentan nu se poate conecta la {0}, chiar dacă este în aria de acoperire. Încă vă puteți conecta selectând-l manual din setările Windows.</value>
   </data>
   <data name="ErrorCredentialsAtChar" xml:space="preserve">
-    <value>Il nome utente deve contenere @ esattamente una volta</value>
+    <value>Numele de utilizator trebuie să conțină @ exact o dată</value>
   </data>
   <data name="ErrorCredentialsEndsWith" xml:space="preserve">
-    <value>Il nome utente non può terminare con un punto o uno spazio</value>
+    <value>Numele de utilizator nu se poate termina cu punct sau cu spațiu</value>
   </data>
   <data name="ErrorCredentialsEndWithRealm" xml:space="preserve">
-    <value>Lo username deve finire con .{0} or @{0}</value>
+    <value>Numele de utilizator trebuie să se termine cu .{0} sau @{0}</value>
   </data>
   <data name="ErrorCredentialsEndWithRealmNoSubdomain" xml:space="preserve">
-    <value>Lo username deve finire con @{0}</value>
+    <value>Numele de utilizator trebuie să se termine cu @{0}</value>
   </data>
   <data name="ErrorCredentialsSpecialCharacters" xml:space="preserve">
-    <value>Caratteri come . e @ non possono essere adiacenti tra loro</value>
+    <value>Caractere precum . și @ nu pot fi adiacente unui altuia</value>
   </data>
   <data name="ErrorEapConfigCorrupted" xml:space="preserve">
-    <value>Il file di configurazione EAP selezionato è danneggiato. Scegli un altro file.</value>
+    <value>Fișierul de configurare EAP este corupt. Vă rugăm să selectați un alt fișier.</value>
   </data>
   <data name="ErrorEapConfigInvalid" xml:space="preserve">
-    <value>Impossibile leggere dal file. Assicurati di selezionare un file di configurazione EAP valido.</value>
+    <value>Nu s-a putut citi din fișier. Asigutați-vă că ați selectat un fișier de configurare EAP valid.</value>
   </data>
   <data name="ErrorEapConfigIsEmpty" xml:space="preserve">
-    <value>Impossibile connettersi, la configurazione EAP è vuota</value>
+    <value>Nu s-a putut conecta, configurația EAP este goală</value>
   </data>
   <data name="ErrorEapNotConfigured" xml:space="preserve">
-    <value>Impossibile configurare EAP</value>
+    <value>EAP nu a putut fi configurat</value>
   </data>
   <data name="ErrorInternetConnection" xml:space="preserve">
-    <value>Errore di connessione ad Internet</value>
+    <value>Eroare cu conexiune la internet</value>
   </data>
   <data name="ErrorInvalidCertificatePath" xml:space="preserve">
-    <value>Percorso del certificato non valido</value>
+    <value>Cale certificat invalidă</value>
   </data>
   <data name="ErrorInvalidCredentials" xml:space="preserve">
-    <value>Lo username e/o la password non sono corretti</value>
+    <value>Numele de utilizator și/sau parola nu sunt valide</value>
   </data>
   <data name="ErrorInvalidEapConfig" xml:space="preserve">
-    <value>È stata fornita una configurazione EAP non valida., questo non dovrebbe accadere, per favore segnala un bug.</value>
+    <value>Configurația EAP furnizată este invalidă, acest lucru nu ar trebui să se întâmple, vă rugăm să raportați o eroare.</value>
   </data>
   <data name="ErrorMissingCredentials" xml:space="preserve">
-    <value>Non vengono fornite le credenziali</value>
+    <value>Credențialele nu sunt furnizate</value>
   </data>
   <data name="ErrorMissingRequiredCACertificate" xml:space="preserve">
-    <value>Il certificato CA richiesto non è stato installato, ciò non dovrebbe accadere, per favore segnala un bug</value>
+    <value>Certificatul CA necesar nu a fost instalat, acest lucru nu ar trebui să se întâmple, vă rugăm să raportați o eroare</value>
   </data>
   <data name="ErrorNoClientCertificateProvided" xml:space="preserve">
-    <value>Non è stato fornito alcun certificato client (valido) ( parametro {0}.</value>
+    <value>Niciun certificat client (valid) nu a fost furnizat ( {0}parametru.</value>
   </data>
   <data name="ErrorNoConnection" xml:space="preserve">
-    <value>Impossibile connettersi.
-Errore: {0}.</value>
+    <value>Nu s-a putut conecta.  
+Excepție: {0}.</value>
   </data>
   <data name="ErrorNoInternet" xml:space="preserve">
-    <value>Nessuna connessione ad Internet</value>
+    <value>Fără conexiune la internet</value>
   </data>
   <data name="ErrorNotUninstalled" xml:space="preserve">
-    <value>{0} non è stato disinstallato.</value>
+    <value>{0} nu a fost dezinstalat.</value>
   </data>
   <data name="ErrorOptionIsEmpty" xml:space="preserve">
-    <value>{0}  il valore dell'opzione non può essere vuoto o contenere solo spazi bianchi  </value>
+    <value>valoarea opțiunii {0} nu poate fi goală sau doar spațiu</value>
   </data>
   <data name="ErrorRequiredCertificatesNotInstalled" xml:space="preserve">
-    <value>Non tutti i certificati richiesti sono installati.</value>
+    <value>Nu toate certificatele necesare sunt instalate.</value>
   </data>
   <data name="ErrorShowCommandOptions" xml:space="preserve">
-    <value>Opzioni mancanti. Inserisci l'opzione {0} o entrambe le opzioni {1} e {2}</value>
+    <value>Opțiuni lipsă. Furnizați opțiunea {0} sau ambele opțiuni {1} și {2}.</value>
   </data>
   <data name="ErrorUnknownProfile" xml:space="preserve">
-    <value>Profilo sconosciuto</value>
+    <value>Profil necunoscut, reîncercați procesul de autentificare</value>
   </data>
   <data name="ErrorUnsupportedConnectionType" xml:space="preserve">
-    <value>La connessione di tipo {0} non è (ancora) supportata.</value>
+    <value>Conexiunea de tip {0} nu are suport (încă).</value>
   </data>
   <data name="ErrorUnsupportedInstituteOrProfile" xml:space="preserve">
-    <value>L'organizzazione o il profilo non sono supportati o il formato non è corretto.
-Seleziona un'organizzazione o un profilo diverso.
+    <value>Organizația sau profilul este fie fără suport, fie nu este format corespunzător. 
+Vă rugăm să selectați o organizație sau un profil diferit. 
 
-Eccezione: {0}</value>
+Excepție: {0}</value>
   </data>
   <data name="ErrorUnsupportedProfile" xml:space="preserve">
-    <value>Il profilo che hai selezionato non è supportato da questa applicazione. Non è stato trovato alcun metodo di autenticazione supportato.</value>
+    <value>Profilul pe care l-ați selectat nu are suport pe această aplicație. Nu a fost găsită nicio metodă de autentificare acceptată.</value>
   </data>
   <data name="ErrorWirelessUnavailable" xml:space="preserve">
-    <value>La connessione wireless non è disponibile su questo computer</value>
+    <value>Wireless nu este disponibil pe acest computer</value>
   </data>
   <data name="FileDialogSelectFile" xml:space="preserve">
-    <value>Seleziona un file.</value>
+    <value>Vă rugăm selectați un fișier.</value>
   </data>
   <data name="HoursLeft" xml:space="preserve">
-    <value>Ancora {0} ore</value>
+    <value>încă {0} ore</value>
   </data>
   <data name="ChoiceKeyYes" xml:space="preserve">
-    <value>s</value>
+    <value>da</value>
     <comment>Single button press for "yes" in terminal</comment>
   </data>
   <data name="LabelAccountValidFor" xml:space="preserve">
-    <value>Il tuo account è valido per</value>
+    <value>Contul dumneavoastră este valid pentru </value>
   </data>
   <data name="LabelEmail" xml:space="preserve">
     <value>E-mail</value>
   </data>
   <data name="LabelHelp" xml:space="preserve">
-    <value>Aiuto</value>
+    <value>Ajutor</value>
   </data>
   <data name="LabelPhone" xml:space="preserve">
-    <value>Telefono</value>
+    <value>Telefon</value>
   </data>
   <data name="LabelProfile" xml:space="preserve">
-    <value>Profilo</value>
+    <value>Profil</value>
   </data>
   <data name="LabelSupported" xml:space="preserve">
-    <value>Supportato</value>
+    <value>Cu suport</value>
   </data>
   <data name="LabelTermsOfUse" xml:space="preserve">
-    <value>Termini di utilizzo</value>
+    <value>Termeni de utilizare</value>
   </data>
   <data name="LabelVersion" xml:space="preserve">
-    <value>Versione App</value>
+    <value>Versiune aplicație</value>
   </data>
   <data name="LabelWeb" xml:space="preserve">
     <value>Web</value>
   </data>
   <data name="LoadCertificateFile" xml:space="preserve">
-    <value>Seleziona un pacchetto di certificati client</value>
+    <value>Selectați un pachet de certificat client</value>
   </data>
   <data name="LoadEapFile" xml:space="preserve">
-    <value>Seleziona un file di configurazione EAP</value>
+    <value>Selectați un fișier de configurare EAP</value>
   </data>
   <data name="Loading" xml:space="preserve">
-    <value>Sto caricando</value>
+    <value>Încărcare</value>
   </data>
   <data name="LocalCertificateLabel" xml:space="preserve">
-    <value>Questo profilo richiede un certificato locale</value>
+    <value>Acest profil necesită un certificat local</value>
   </data>
   <data name="LoginTitle" xml:space="preserve">
-    <value>Login</value>
+    <value>Autentificare</value>
   </data>
   <data name="MenuItemLoadEAP" xml:space="preserve">
-    <value>Carica il file .eap-config...</value>
+    <value>Încărcați fișierul .eap-config...</value>
   </data>
   <data name="MenuItemReauthenticate" xml:space="preserve">
-    <value>Riautenticarsi...</value>
+    <value>Reautentificare...</value>
   </data>
   <data name="MenuItemRefresh" xml:space="preserve">
-    <value>Aggiorna credenziale  </value>
+    <value>Actualizați credențialul</value>
   </data>
   <data name="MenuItemRemoveCertificates" xml:space="preserve">
-    <value>Rimuovi i certificati radice...</value>
+    <value>Ștergere certificate de administrator...</value>
   </data>
   <data name="MenuItemRemoveProfile" xml:space="preserve">
-    <value>Rimuovi il profilo Wi-Fi configurato...</value>
+    <value>Ștergere profil Wi-Fi configurat...</value>
   </data>
   <data name="MenuItemUninstall" xml:space="preserve">
-    <value>Disinstalla l'applicazione...</value>
+    <value>Dezinstalare aplicație...</value>
   </data>
   <data name="MinutesLeft" xml:space="preserve">
-    <value>Ancora {0} minuti</value>
+    <value>încă {0} minute</value>
   </data>
   <data name="EmojiNo" xml:space="preserve">
     <value>✗</value>
     <comment>Single emoji</comment>
   </data>
   <data name="NoEAPConfig" xml:space="preserve">
-    <value>Nessuna informazione di configurazione EAP da mostrare </value>
+    <value>Nicio informație despre configurația EAP de afișat</value>
   </data>
   <data name="ChoiceKeyNo" xml:space="preserve">
-    <value>n</value>
+    <value>nu</value>
     <comment>Single button press for "no" in terminal</comment>
   </data>
   <data name="OAuthExplanation" xml:space="preserve">
-    <value>Per proseguire è necessario autenticarsi nel browser, dovrebbe essersi aperta automaticamente una finestra.</value>
+    <value>Pentru a continua, trebuie să vă autentificați în motorul dumneavoastră de căutare, o fereastră ar trebui să se deschidă automat.</value>
   </data>
   <data name="OAuthWaitingTitle" xml:space="preserve">
-    <value>In attesa ...</value>
+    <value>În așteptare ...</value>
   </data>
   <data name="OptionDescriptionCertificatePath" xml:space="preserve">
-    <value>Percorso del file del certificato</value>
+    <value>Calea de fișier a certificatului</value>
   </data>
   <data name="OptionDescriptionEAPConfig" xml:space="preserve">
-    <value>Percorso della configurazione EAP .eap-config.</value>
+    <value>Calea către configurația EAP .eap-config.</value>
   </data>
   <data name="OptionDescriptionForce" xml:space="preserve">
-    <value>Azione di forza.</value>
+    <value>Forțare acțiune.</value>
   </data>
   <data name="OptionDescriptionInstitute" xml:space="preserve">
-    <value>Il nome dell'organizzazione a cui connettersi.</value>
+    <value>Numele instituției la care trebuie să vă conectați.</value>
   </data>
   <data name="OptionDescriptionProfile" xml:space="preserve">
-    <value>Profilo dell'organizzazione a cui connettersi.</value>
+    <value>Profilul institutului la care ar trebuii să vă conectați.</value>
   </data>
   <data name="OptionDescriptionQuery" xml:space="preserve">
-    <value>Query per filtrare gli elementi</value>
+    <value>Interogare pentru filtrarea elementelor</value>
   </data>
   <data name="OptionRequired" xml:space="preserve">
-    <value>L'opzione {0} è richiesta</value>
+    <value>Opțiunea {0} este necesară</value>
   </data>
   <data name="Passphrase" xml:space="preserve">
-    <value>Passphrase del certificato</value>
+    <value>Frază de autentificare certificat</value>
   </data>
   <data name="PassphraseLabel" xml:space="preserve">
-    <value>Immettere la password per il certificato</value>
+    <value>Introduceți parola pentru certificat</value>
   </data>
   <data name="Password" xml:space="preserve">
-    <value>Password</value>
+    <value>Parola</value>
   </data>
   <data name="PasswordLabel" xml:space="preserve">
-    <value>Password:</value>
+    <value>Parola:</value>
   </data>
   <data name="ProfileContactInfo" xml:space="preserve">
-    <value>Informazioni di contatto</value>
+    <value>Informații de contact</value>
   </data>
   <data name="ProfileEmail" xml:space="preserve">
     <value>Email</value>
   </data>
   <data name="ProfileLabel" xml:space="preserve">
-    <value>Nome del profilo</value>
+    <value>Nume profil</value>
   </data>
   <data name="ProfileNotAffiliatedInstitution" xml:space="preserve">
-    <value>Non sei affiliato all'organizzazione?</value>
+    <value>Nu sunteți afiliat unei organizații?</value>
   </data>
   <data name="ProfilePhone" xml:space="preserve">
-    <value>Telefono</value>
+    <value>Telefon</value>
   </data>
   <data name="ProfileRemoveConfirmation" xml:space="preserve">
-    <value>Questo rimuoverà tutta la configurazione di '{0}'.</value>
+    <value>Acest lucru va șterge toate configurările pentru '{0}'.</value>
   </data>
   <data name="ProfileSelectOtherInstitution" xml:space="preserve">
-    <value>Seleziona un altro profilo</value>
+    <value>Selectați alt profil</value>
   </data>
   <data name="ProfileWeb" xml:space="preserve">
     <value>Web</value>
   </data>
   <data name="RedirectText" xml:space="preserve">
-    <value>Clicca qui per essere reindirizzato al sito delle organizzazioni per maggiori informazioni su come connettersi. Quando farai clic sul collegamento, l'applicazione si chiuderà.</value>
+    <value>Apăsați aici pentru a fi redirecționat către site-ul instituției pentru mai multe informații despre cum să vă conectați. Când apăsați linkul această aplicație se va închide.</value>
   </data>
   <data name="RedirectTitle" xml:space="preserve">
-    <value>Redirezione</value>
+    <value>Redirecționare</value>
   </data>
   <data name="RemoveProfileMessage" xml:space="preserve">
-    <value>Questo rimuoverà tutta la configurazione di
+    <value>Acest lucru va șterge toate configurările pentru 
 {0}</value>
   </data>
   <data name="RemoveProfileTitle" xml:space="preserve">
-    <value>Rimuovi {0}</value>
+    <value>Stergeți {0}</value>
   </data>
   <data name="RequestToInstallCertificates" xml:space="preserve">
-    <value>Installa tutti i certificati richiesti?</value>
+    <value>Instalați toate certificatele necesare?</value>
   </data>
   <data name="Search" xml:space="preserve">
-    <value>Cerca la tua organizzazione</value>
+    <value>Căutați organizația dumneavoastră</value>
   </data>
   <data name="SelectFile" xml:space="preserve">
-    <value>Sfoglia</value>
+    <value>Căutare</value>
   </data>
   <data name="SelectInstitution" xml:space="preserve">
-    <value>Seleziona l'organizzazione</value>
+    <value>Selectați organizația</value>
   </data>
   <data name="SelectProfile" xml:space="preserve">
-    <value>Seleziona profilo</value>
+    <value>Selectați profilul</value>
   </data>
   <data name="TermsOfUseTitle" xml:space="preserve">
-    <value>Termini di utilizzo</value>
+    <value>Termeni de utilizare</value>
   </data>
   <data name="UninstallNotification" xml:space="preserve">
-    <value>L'applicazione e la sua configurazione sono state disinstallate.</value>
+    <value>{0} și configurația sa au fost șterse.</value>
   </data>
   <data name="Username" xml:space="preserve">
-    <value>Username</value>
+    <value>Numele de utilizator</value>
   </data>
   <data name="UserNameWatermark" xml:space="preserve">
-    <value>@example.com</value>
+    <value>@exemplu.com</value>
   </data>
   <data name="VersionDebug" xml:space="preserve">
-    <value>{0}+Debug</value>
+    <value>{0}+Depanare</value>
   </data>
   <data name="VersionDebugNoVersion" xml:space="preserve">
-    <value>Debug</value>
+    <value>Depanare</value>
   </data>
   <data name="VersionRelease" xml:space="preserve">
     <value>{0}</value>
   </data>
   <data name="VersionReleaseNoVersion" xml:space="preserve">
-    <value>Senza versione</value>
+    <value>Fără versiune</value>
   </data>
   <data name="WarningFileDoesNotExist" xml:space="preserve">
-    <value>Il file specificato non esiste.</value>
+    <value>Fișierul specificat nu există.</value>
   </data>
   <data name="WarningInstallCertificates" xml:space="preserve">
-    <value>È necessario prima installare i certificati con InstallCertificates</value>
+    <value>Mai întâi este necesară instalarea certificatelor cu InstallCertificates</value>
   </data>
   <data name="WarningMissingCertificates" xml:space="preserve">
-    <value>Certificati mancanti</value>
+    <value>Certificate lipsă</value>
   </data>
   <data name="WarningNoInstitutesFound" xml:space="preserve">
-    <value>Nessuna organizzazione trovata</value>
+    <value>Nicio instituție găsită</value>
   </data>
   <data name="WarningNoProfilesFound" xml:space="preserve">
-    <value>Nessun profilo trovato</value>
+    <value>Niciun profil găsit</value>
   </data>
   <data name="WarningNoSupportedAuthenticationMethod" xml:space="preserve">
-    <value>Non è stato trovato alcun metodo di autenticazione supportato.</value>
+    <value>Nu a fost găsită nicio metodă de autentificare cu suport.</value>
   </data>
   <data name="WarningProfileNotSupported" xml:space="preserve">
-    <value>Il profilo che hai selezionato non è supportato da questa applicazione.</value>
+    <value>Profilul pe care l-ați selectat nu are suport pe această aplicație.</value>
   </data>
   <data name="WarningUninstall" xml:space="preserve">
-    <value>Attualmente stai disinstallando completamente {0}.</value>
+    <value>În prezent vă aflați în procesul de a dezinstala complet {0}.</value>
   </data>
   <data name="WarningUninstallCertificates" xml:space="preserve">
-    <value>Ciò significa disinstallare tutti i certificati radice attendibili installati da questa applicazione.</value>
+    <value>Acest lucru înseamnă dezinstalarea tuturor certificatelor de administrator fiabile instalate pe această aplicație.</value>
   </data>
   <data name="WarningUnsupportedFileType" xml:space="preserve">
-    <value>Il tipo di file che hai scelto non è supportato.</value>
+    <value>Tipul de fișier ales nu are suport.</value>
   </data>
   <data name="WarnRealmMismatch" xml:space="preserve">
-    <value>Il realm della OuterIdentity sarà impostato a "{0}" ma il profilo ha specificato "{1}"</value>
+    <value>Domeniul pentru OuterIdentity o să fie setat la „{0}” dar profilul specificat „{1}”</value>
   </data>
   <data name="EmojiWarning" xml:space="preserve">
     <value>⚠️</value>
     <comment>Single emoji</comment>
   </data>
   <data name="Yes" xml:space="preserve">
-    <value>Sì</value>
+    <value>Da</value>
   </data>
   <data name="EmojiYes" xml:space="preserve">
     <value>✓</value>
     <comment>Single emoji</comment>
   </data>
   <data name="No" xml:space="preserve">
-    <value>No</value>
+    <value>Nu</value>
   </data>
   <data name="OK" xml:space="preserve">
     <value>OK</value>
   </data>
   <data name="NoConnection" xml:space="preserve">
-    <value>{0} necessita di una connessione ad internet attiva.</value>
+    <value>{0} necesită o conexiune activă la internet</value>
   </data>
   <data name="ConnectTo0" xml:space="preserve">
-    <value>Connetti a {0}</value>
+    <value>Conectare la {0}</value>
   </data>
   <data name="ExampleRealm" xml:space="preserve">
-    <value>esempio</value>
+    <value>exemplu</value>
   </data>
   <data name="ProfileRenewCertificate" xml:space="preserve">
-    <value>Rinnova l'account</value>
+    <value>Reînnoire cont</value>
   </data>
   <data name="ProfileRepairCertificate" xml:space="preserve">
-    <value>Ripara il tuo account</value>
+    <value>Repararea contului dumneavoastră</value>
   </data>
   <data name="CheckCertificateToastButton" xml:space="preserve">
-    <value>Rinnova l'account</value>
+    <value>Reînnoire cont</value>
   </data>
   <data name="CheckCertificateToastP1" xml:space="preserve">
-    <value>Il tuo account {0} sta per scadere.</value>
+    <value>Contul dumneavoastră {0}este pe cale să expire. </value>
   </data>
   <data name="CheckCertificateToastP2" xml:space="preserve">
-    <value>Hai ancora {0} giorni rimanenti, rinnova il tuo account per favore.</value>
+    <value>Mai sunt încă {0} zile rămase, vă rugăm să vă reînnoiți contul.</value>
   </data>
   <data name="UpdateAvailable" xml:space="preserve">
-    <value>Aggiornamento disponibile</value>
+    <value>Actualizare disponibilă</value>
   </data>
   <data name="UpdateCurrentFileNewer" xml:space="preserve">
-    <value>La versione installata di {0} è più vecchia di questa versione. Vuoi aggiornare?</value>
+    <value>Versiunea instalată de {0} este mai veche decât această versiune. Doriți să o actualizați?</value>
   </data>
   <data name="VersionNoLongerSupported" xml:space="preserve">
-    <value>{0} versione {1} non è più supportato. La versione più nuova è {2}</value>
+    <value>{0} versiunea {1} nu mai are suport. Cea mai nouă versiune este {2}</value>
   </data>
   <data name="Connected" xml:space="preserve">
-    <value>Sei connesso a {0}.</value>
+    <value>Acum sunteți conectat la {0}.</value>
   </data>
   <data name="UninstallNotificationTitle" xml:space="preserve">
-    <value>Disinstallare {0}</value>
+    <value>Dezinstalați {0}</value>
   </data>
   <data name="ButtonAppConnect" xml:space="preserve">
-    <value>Connesso a {0}</value>
+    <value>Conectați-vă la {0}</value>
   </data>
   <data name="InstallSuccess" xml:space="preserve">
-    <value>{0} è stato installato correttamente</value>
+    <value>{0} a fost instalat cu succes.</value>
   </data>
   <data name="InstallTitle" xml:space="preserve">
-    <value>installazione {0}</value>
+    <value>Instalare {0}</value>
   </data>
   <data name="OAuthResponseAcceptedTitle" xml:space="preserve">
-    <value>L'app è stata autorizzata!</value>
+    <value>Aplicația a fost autorizată!</value>
   </data>
   <data name="OAuthResponseRejectedTitle" xml:space="preserve">
-    <value>L'autorizzazione è stata rifiutata.</value>
+    <value>Autorizația a fost respinsă.</value>
   </data>
   <data name="OAuthResponseCloseMessage" xml:space="preserve">
-    <value>Ora puoi chiudere questa scheda e
-tornare all'app.</value>
+    <value>Acum puteți închide această filă și 
+să reveniți la aplicație.</value>
   </data>
   <data name="OAuthAuthorizationTitle" xml:space="preserve">
-    <value>Autorizzazione</value>
+    <value>Autorizație</value>
   </data>
   <data name="ErrorOccurredWhileRetreivingProfile" xml:space="preserve">
-    <value>Si è verificato un errore durante il recupero del profilo LetsWifi o EAP</value>
+    <value>A apărut o eroare în timpul extragerii profilului LetsWifi sau EAP</value>
   </data>
   <data name="IncompatibleVersionMessage" xml:space="preserve">
-    <value>Questa versione di {0} è per una architettura diversa da quella della tua macchina.</value>
+    <value>Această versiune de {0} este pentru o arhitectură diferită de cea a mașinii dumneavoastră.</value>
   </data>
   <data name="UpdateAvailableWithVersionNo" xml:space="preserve">
-    <value>{0} {1} è disponibile.</value>
+    <value>{0} {1} este valabil.</value>
   </data>
   <data name="UpdateNowButton" xml:space="preserve">
-    <value>Aggiorna ora</value>
+    <value>Actualizați acum</value>
   </data>
   <data name="OpenBrowserButton" xml:space="preserve">
-    <value>Apri il browser</value>
+    <value>Deschideți motorul de căutare</value>
   </data>
   <data name="CopyLinkButton" xml:space="preserve">
-    <value>Copia il collegamento</value>
+    <value>Copiere link</value>
   </data>
 </root>
