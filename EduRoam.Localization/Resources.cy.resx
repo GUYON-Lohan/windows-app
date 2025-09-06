@@ -371,6 +371,7 @@ Eithriad: {0}</value>
   </data>
   <data name="ChoiceKeyYes" xml:space="preserve">
     <value>y</value>
+    <comment>Single button press for "yes" in terminal</comment>
   </data>
   <data name="LabelAccountValidFor" xml:space="preserve">
     <value>Mae eich cyfrif yn ddilys ar gyfer</value>
