@@ -71,7 +71,7 @@ namespace App.Library.ViewModels
 
         private void SelectOtherInstitution()
         {
-            this.Owner.Restart();
+            this.Owner.SelectInstitution();
         }   
         
         private async void Reauthenticate()

@@ -30,7 +30,7 @@ namespace App.Library.ViewModels
     {
         public static readonly SelfInstaller SelfInstaller = SelfInstaller.DefaultInstance;
 
-        private readonly Status status;
+        private Status status;
 
         private readonly INetworkListManager networkListManager;
         public bool ShowNotificationBar { get; set; } = false;
@@ -162,10 +162,9 @@ namespace App.Library.ViewModels
         {
             get
             {
-                var statusTask = new StatusTask();
-                var status = statusTask.GetStatus();
+                this.status = new StatusTask().GetStatus();
 
-                return status.Version;
+                return this.status.Version;
             }
         }
 
@@ -356,12 +355,20 @@ namespace App.Library.ViewModels
             this.CallPropertyChanged(nameof(this.PageTitle));
         }
 
-        public void Restart()
+        private void CallProfilePropertyChanges()
+        {
+            this.CallPropertyChanged(nameof(this.CanProfileBeRemoved));
+            this.CallPropertyChanged(nameof(this.CanCertificatesBeRemoved));
+            this.CallPropertyChanged(nameof(this.IsARefreshPossible));
+            this.CallPropertyChanged(nameof(this.IsReauthenticatePossible));
+        }
+
+        public void SelectInstitution()
         {
             this.State.Reset();
             this.SetActiveContent(new SelectInstitutionViewModel(this));
         }
-
+        
         /// <summary>
         /// downloads eap config based on profileId
         /// seperated into its own function as this can happen either through
@@ -556,7 +563,11 @@ namespace App.Library.ViewModels
                 {
                     profiler.RemoveCurrentProfile();
 
-                    this.Restart();
+                    // Reset the state and set the content to the status view model
+                    this.State.Reset();
+                    this.status = new StatusTask().GetStatus();
+                    this.CallProfilePropertyChanges();
+                    this.SetActiveContent(new StatusViewModel(this));
                 }
             }
         }
