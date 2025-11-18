@@ -691,4 +691,11 @@ Foutmelding: {0}</value>
   <data name="CopyLinkButton" xml:space="preserve">
     <value>Kopiëer link</value>
   </data>
+  <data name="ConnectTryingToConnect" xml:space="preserve">
+    <value>Probeert verbinding te maken. Even geduld...</value>
+  </data>
+  <data name="ConnectTryingToConnectIn" xml:space="preserve">
+    <value>Probeert verbinding te maken over {0} seconden.
+</value>
+  </data>
 </root>
