@@ -7,7 +7,6 @@ using Microsoft.Toolkit.Uwp.Notifications;
 
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace App.Library
@@ -101,13 +100,12 @@ namespace App.Library
             }
         }
 
-        private static void RefreshCertificate(bool force, bool verbose)
+        private async static void RefreshCertificate(bool force, bool verbose)
         {
-            var expiration = Task.Run(async () => { return await RefreshTask.RefreshAsync(force: force); });
-            expiration.RunSynchronously();
+            var expiration = await RefreshTask.RefreshAsync(force: force);
 
             if (verbose) {
-                MessageBox.Show(string.IsNullOrWhiteSpace(expiration.Result) ? expiration.Result : "The certificate was not renewed");
+                MessageBox.Show(string.IsNullOrWhiteSpace(expiration) ? "The certificate was not renewed" : expiration);
             }
         }
 
