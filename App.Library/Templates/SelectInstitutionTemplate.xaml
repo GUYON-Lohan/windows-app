@@ -24,9 +24,18 @@
                   Background="{DynamicResource BackgroundBrush}">
 
                 <StackPanel Orientation="Vertical" Margin="0,-80,0,0" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <Image Width="160"
+                    <Image
+                           Visibility="{Binding Disconnected, Converter={StaticResource InverseBooleanToVisibilityConverter}}"
+                           Width="160"
                            Source="{Binding Converter={StaticResource AppImageConverter}, ConverterParameter=application-icon.png}"
                            Margin="0, 24" />
+                    <TextBlock
+                               Visibility="{Binding Disconnected, Converter={StaticResource BooleanToVisibilityConverter}}"
+                               Margin="5"
+                               FontSize="{StaticResource Font.Large}"
+                               FontWeight="Bold"
+                               Text="⚠️"
+                               TextAlignment="Center" />
                     <TextBlock x:Name="WaitingConnection"
                                Visibility="{Binding Disconnected, Converter={StaticResource BooleanToVisibilityConverter}}"
                                Margin="5"
