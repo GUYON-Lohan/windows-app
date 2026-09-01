@@ -20,6 +20,20 @@ The solution is built on **.NET 8.0 LTS** (`net8.0-windows10.0.19041.0`) with du
 
 ---
 
+## Verified Hardware & Test Environment
+
+Native ARM64 build and execution have been tested and verified on physical Windows on ARM hardware:
+
+| Environment | Details |
+|---|---|
+| **Device Model** | Microsoft Surface Pro (11th Edition, Copilot+ PC) |
+| **Processor** | Qualcomm Snapdragon® X Plus 10-core (X1P64100 @ 3.40 GHz) |
+| **Architecture** | Native 64-bit ARM (`ARM64` / `win-arm64`) |
+| **Operating System** | Windows 11 Pro (Build 26220.x, ARM64) |
+| **Tested Runtimes** | .NET 8.0, .NET 9.0 (`Microsoft.WindowsDesktop.App` 9.0.12), .NET 10.0 (`10.0.9`) |
+
+---
+
 ## Solution Structure
 
 The solution `EduroamApp.sln` contains 8 active projects:

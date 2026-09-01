@@ -5,6 +5,22 @@ This pull request modernizes the entire Windows geteduroam solution from legacy 
 
 ---
 
+## Verified Hardware & Test Environment
+
+This implementation was compiled, published, and validated natively on real Copilot+ Windows on ARM hardware:
+
+| Property | Value |
+| :--- | :--- |
+| **Device Model** | Microsoft Surface Pro (11th Edition) |
+| **Processor (SoC)** | Qualcomm Snapdragon® X Plus 10-core (X1P64100 @ 3.40 GHz) |
+| **Architecture** | Native 64-bit ARM (`ARM64` / `win-arm64`) |
+| **Operating System** | Windows 11 Pro Insider Preview (Build 26220.x, 64-bit ARM) |
+| **.NET SDK** | .NET 8.0 / 10.0.301 SDK |
+| **.NET Desktop Runtime** | `Microsoft.WindowsDesktop.App` 9.0.12 / 10.0.9 (`arm64`) |
+| **Execution Verified** | `geteduroam.exe` (WPF GUI), `getgovroam.exe` (WPF GUI), `eduroam-cli.exe` (CLI), `geteduroam.msi` (WiX 4) |
+
+---
+
 ## Key Improvements & Technical Details
 
 ### 1. Modern SDK-Style Project Conversion
@@ -38,8 +54,8 @@ This pull request modernizes the entire Windows geteduroam solution from legacy 
 | Component / Target | Architecture | Result |
 | :--- | :--- | :--- |
 | **EduroamApp.sln Build** | AnyCPU / Multi | Pass (0 Errors) |
-| **geteduroam.exe (WPF)** | `win-arm64` (Native ARM64 PE `0xAA64`) | Pass (Tested on Windows 11 ARM64) |
-| **getgovroam.exe (WPF)** | `win-arm64` (Native ARM64 PE `0xAA64`) | Pass (Tested on Windows 11 ARM64) |
+| **geteduroam.exe (WPF)** | `win-arm64` (Native ARM64 PE `0xAA64`) | Pass (Tested on Surface Pro 11 Snapdragon X) |
+| **getgovroam.exe (WPF)** | `win-arm64` (Native ARM64 PE `0xAA64`) | Pass (Tested on Surface Pro 11 Snapdragon X) |
 | **eduroam-cli.exe (CLI)** | `win-arm64` (Native ARM64 PE `0xAA64`) | Pass (Help, Status, Search verified) |
 | **geteduroam.exe (WPF)** | `win-x64` (Cross-compilation) | Pass |
 | **geteduroam.msi** | ARM64 (`%ProgramFiles64Folder%`) | Pass (WiX v4 output verified) |
