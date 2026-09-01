@@ -46,6 +46,9 @@ jobs:
       - name: Verify .NET Environment
         run: dotnet --info
 
+      - name: Install WiX Toolset CLI
+        run: dotnet tool install --global wix
+
       - name: Restore Solution Dependencies
         run: dotnet restore EduroamApp.sln
 
