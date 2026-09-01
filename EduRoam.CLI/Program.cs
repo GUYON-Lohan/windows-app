@@ -1,4 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
+// See https://aka.ms/new-console-template for more information
 using App.Library;
 
 using Microsoft.Extensions.DependencyInjection;
@@ -20,7 +20,7 @@ namespace EduRoam.CLI
 
             serviceProvider = ServicesConfiguration.ConfigureServices();
 
-            var engine = serviceProvider.GetService<Engine>();
+            var engine = serviceProvider.GetService<Engine>() ?? new Engine();
 
             await engine.Run(args);
 

@@ -264,3 +264,8 @@ __pycache__/
 /App.MsiCreator/geteduroam.ico
 /App.MsiCreator/geteduroam.msi
 /App.MsiCreator/Templates/
+
+# Local agent artifacts & published binaries
+.agents/
+PROJECT.md
+publish/
