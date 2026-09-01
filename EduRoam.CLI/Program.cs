@@ -16,6 +16,7 @@ namespace EduRoam.CLI
 
         public static async Task Main(string[] args)
         {
+            System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
             SharedResources.Culture = System.Globalization.CultureInfo.CurrentUICulture;
 
             serviceProvider = ServicesConfiguration.ConfigureServices();
