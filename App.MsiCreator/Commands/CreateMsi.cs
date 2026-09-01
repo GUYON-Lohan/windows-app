@@ -31,10 +31,8 @@ namespace App.MsiCreator.Commands
                 var installerTemplate = Newtonsoft.Json.JsonConvert.DeserializeObject<MsiTemplate>(installerTemplateStr);
                 if (installerTemplate != null)
                 {
-                    Create(installerTemplate, exePath);
+                    Create(installerTemplate, installerTemplatePath, exePath);
                 }
-
-                Console.WriteLine(".msi created");
             }, installerTemplateOption, exePathOption);
 
             return command;
@@ -65,7 +63,30 @@ namespace App.MsiCreator.Commands
             }
         }
 
-        internal static void Create(MsiTemplate appTemplate, FileInfo exePath)
+        private static Version GetExeVersion(string exePath)
+        {
+            try
+            {
+                var verInfo = FileVersionInfo.GetVersionInfo(exePath);
+                var verStr = verInfo.ProductVersion ?? verInfo.FileVersion;
+                if (!string.IsNullOrWhiteSpace(verStr))
+                {
+                    var cleanVer = verStr.Split('+')[0].Split('-')[0];
+                    if (Version.TryParse(cleanVer, out var parsed))
+                    {
+                        return parsed;
+                    }
+                }
+            }
+            catch
+            {
+                // Fallback
+            }
+
+            return new Version("1.0.0.0");
+        }
+
+        internal static void Create(MsiTemplate appTemplate, FileInfo installerTemplatePath, FileInfo exePath)
         {
             var machineType = GetPeMachineType(exePath.FullName);
             var isArm64 = machineType == 0xAA64;
@@ -80,7 +101,7 @@ namespace App.MsiCreator.Commands
             {
                 GUID = appTemplate.InstallerId,
                 UI = WUI.WixUI_ProgressOnly,
-                Version = new Version(AssemblyName.GetAssemblyName(exePath.FullName).Version?.ToString() ?? "1.0.0.0"),
+                Version = GetExeVersion(exePath.FullName),
                 Platform = targetPlatform,
                 InstallerVersion = isArm64 ? 500 : 200
             };
@@ -96,12 +117,25 @@ namespace App.MsiCreator.Commands
 
             if (!string.IsNullOrEmpty(appTemplate.AppIconPath))
             {
-                var appIconFileInfo = new FileInfo(appTemplate.AppIconPath);
-                if (appIconFileInfo.Directory != null && appIconFileInfo.Directory.FullName != Directory.GetCurrentDirectory())
+                var templateDir = installerTemplatePath.Directory?.FullName ?? Directory.GetCurrentDirectory();
+                var resolvedIconPath = Path.IsPathRooted(appTemplate.AppIconPath)
+                    ? appTemplate.AppIconPath
+                    : Path.Combine(templateDir, appTemplate.AppIconPath);
+
+                if (!System.IO.File.Exists(resolvedIconPath))
                 {
-                    appIconFileInfo = appIconFileInfo.CopyTo(Path.Combine(Directory.GetCurrentDirectory(), appIconFileInfo.Name), true);
+                    resolvedIconPath = Path.Combine(Directory.GetCurrentDirectory(), Path.GetFileName(appTemplate.AppIconPath));
                 }
-                project.ControlPanelInfo.ProductIcon = appIconFileInfo.Name;
+
+                if (System.IO.File.Exists(resolvedIconPath))
+                {
+                    var destIcon = Path.Combine(Directory.GetCurrentDirectory(), Path.GetFileName(resolvedIconPath));
+                    if (!string.Equals(Path.GetFullPath(resolvedIconPath), Path.GetFullPath(destIcon), StringComparison.OrdinalIgnoreCase))
+                    {
+                        System.IO.File.Copy(resolvedIconPath, destIcon, true);
+                    }
+                    project.ControlPanelInfo.ProductIcon = Path.GetFileName(resolvedIconPath);
+                }
             }
 
             project.ControlPanelInfo.Manufacturer = appTemplate.Manufacturer;
@@ -111,11 +145,11 @@ namespace App.MsiCreator.Commands
 
             if (msi == null)
             {
-                Debug.WriteLine("Could not create .msi");
+                Console.WriteLine("Could not create .msi");
             }
             else
             {
-                Debug.WriteLine($".msi created ({msi})");
+                Console.WriteLine($".msi created ({msi})");
             }
         }
     }
